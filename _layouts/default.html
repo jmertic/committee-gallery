@@ -1,0 +1,34 @@
+---
+---
+
+{% assign committee_members = site.data[page.data-source].Data | where:'VotingStatus', 'Voting Rep' %}
+
+
+<div class="wpb_wrapper">
+{% for committee_member in committee_members %}
+	{% assign mod4 = forloop.index | modulo: 4 %}
+	{% if mod4 == 1 %} 
+	<div class="col span_12 left" data-midnight="dark">
+	{% endif %}
+		<div class="vc_col-sm-3 wpb_column column_container vc_column_container col has-animation no-extra-padding one-fourths single-person instance-2 triggered-animation animated-in" data-using-bg="true" data-shadow="none" data-border-animation="" data-border-animation-delay="" data-border-width="none" data-border-style="solid" data-border-color="" data-bg-cover="" data-padding-pos="all" data-has-bg-color="true" data-bg-color="#fff" data-bg-opacity="0" data-hover-bg="#fff" data-hover-bg-opacity="0" data-animation="fade-in-from-bottom" data-delay="0" style="transform: none; opacity: 1;">
+			<div class="vc_column-inner">
+				<div class="wpb_wrapper">									
+					<div class="single-person-grid">
+						<div class="span_12 single-person-header">
+							<div class="single-person-icon">
+								<img src="{{ committee_member.LogoURL }}">
+							</div>
+							<div class="single-person-title">
+								<h3>{{ committee_member.FirstName }} {{ committee_member.LastName }}</h3>
+								<h5>{% if committee_member.Role != 'None' %}{{ committee_member.Role }}<br>{% endif %}{{ committee_member.Title }} at {{ committee_member.Organization.Name }}</h5>
+							</div>
+						</div> <!-- End Single person Header -->
+					</div>
+				</div>
+			</div>
+		</div>
+	{% if mod4 == 0 || forloop.last %} 
+	</div>
+	{% endif %}
+{% endfor %}
+</div>
