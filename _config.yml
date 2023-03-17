@@ -1,6 +1,11 @@
 jekyll_get_json:
   - data: open-mainframe-project-governing-board
     json: 'https://api-gw.platform.linuxfoundation.org/project-service/v2/public/projects/a0941000002wBymAAE/committees/1c29a7fe-0ff4-4728-a21d-561c6b1c7676/members'
+  - data: open-mainframe-project-tac
+    json: 'https://api-gw.platform.linuxfoundation.org/project-service/v2/public/projects/a0941000002wBymAAE/committees/163b26f7-a49b-40a3-89bb-e0592296c003/members'
+  - data: open-mainframe-project-marketing-committee
+    json: 'https://api-gw.platform.linuxfoundation.org/project-service/v2/public/projects/a0941000002wBymAAE/committees/af26e499-0dcc-4cb2-9164-9e3a5e43d8c3/members'
+
 
 plugins:
   - jekyll-get-json
