@@ -2,9 +2,6 @@
 ---
 
 {% assign committee_members = site.data[page.data-source].Data | where:'VotingStatus', 'Voting Rep' %}
-
-
-<div class="wpb_wrapper">
 {% for committee_member in committee_members %}
 	{% assign mod4 = forloop.index | modulo: 4 %}
 	{% if mod4 == 1 %} 
@@ -31,4 +28,3 @@
 	</div>
 	{% endif %}
 {% endfor %}
-</div>
