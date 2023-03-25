@@ -7,6 +7,8 @@ The purpose of this project is to enable pulling the committee member list and m
 - [default](https://github.com/jmertic/committee-gallery/blob/main/_layouts/default.html) is the HTML layout used by most LF project websites from 2021 or earlier.
 - [newsite](https://github.com/jmertic/committee-gallery/blob/main/_layouts/newsite.html) is for LF project websites from 2022 and newer.
 
+Issues are always welcome, as well as pull requests to fix issues or add new templates.
+
 ## Adding a committee
 
 It's an easy two step process to add a new committee. Note that you can add a pull request to commit to this repo to host the committee HTML code.
