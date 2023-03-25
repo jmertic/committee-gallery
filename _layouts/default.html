@@ -1,7 +1,8 @@
 ---
 ---
 
-{% assign committee_members = site.data[page.data-source].Data | where:'VotingStatus', 'Voting Rep' %}
+{% assign data-source = page.name | replace: ".md", "" %}
+{% assign committee_members = site.data[data-source].Data | where:'VotingStatus', 'Voting Rep' %}
 {% for committee_member in committee_members %}
 	{% assign mod4 = forloop.index | modulo: 4 %}
 	{% if mod4 == 1 %} 
@@ -20,6 +21,17 @@
 								<h5>{% if committee_member.Role != 'None' %}{{ committee_member.Role }}<br>{% endif %}{{ committee_member.Title }} at {{ committee_member.Organization.Name }}</h5>
 							</div>
 						</div> <!-- End Single person Header -->
+						<div class="single-person-description">
+							<p class="short_description">Experienced industry and corporate leader who specializes in engineering external R&amp;D.</p>
+							<p class="read-more"><a href="#" data-featherlight="#{{ committee_member.FirstName | downcase }}-clark">Read More</a></p>
+							<div class="social-links">
+								<a href="https://www.linkedin.com/in/alanhclark" target="blank" title="LinkedIn"><i class="fa fa-linkedin"></i></a>
+							</div>
+							<div id="alan-clark" class="lightbox">
+								<p class="description"></p><p>Alan Clark is an experienced industry and corporate leader who specializes in engineering external R&amp;amp;D. He is a member of the CTO Office and Director for Industry Initiatives, Emerging Standards and Open Source at SUSE. He also serves on the board of the OpenHPC project, LF Networking, OpenStack Foundation, and the Linux Foundation .</p>
+								<p></p>
+							</div>                 
+						</div>
 					</div>
 				</div>
 			</div>
