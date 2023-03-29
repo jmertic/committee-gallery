@@ -23,7 +23,7 @@
 						</div> <!-- End Single person Header -->
 						<div class="single-person-description">
 							<p class="short_description"><!-- placeholder for short description --></p>
-							<p class="read-more"><a href="#" data-featherlight="#{{ committee_member.FirstName | downcase }}-clark">Read More</a></p>
+							<p class="read-more"><a href="#" data-featherlight="#{{ committee_member.FirstName | downcase | handleize }}-{{ committee_member.LastName | downcase | handleize }}">Read More</a></p>
 							<div class="social-links">
 								{% if committee_member.linkedin %}
 								<a href="https://www.linkedin.com/in/" target="blank" title="LinkedIn"><i class="fa fa-linkedin"></i></a>
