@@ -35,7 +35,7 @@
 								<a href="https://github.com/" target="blank" title="Github"><i class="fa fa-github"></i></a>
 								{% endif %}
 							</div>
-							<div id="{{ committee_member.FirstName | handleize }}-{{ committee_member.LastName | handleize }}" class="lightbox">
+							<div id="{{ committee_member.FirstName | downcase | handleize }}-{{ committee_member.LastName | downcase | handleize }}" class="lightbox">
 								<p class="description"></p>
 									<p><!-- placeholder for bio --></p>
 								<p></p>

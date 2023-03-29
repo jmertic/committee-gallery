@@ -49,7 +49,7 @@
 											<div class="wpb_wrapper">
 												<div class="wpb_text_column wpb_content_element ">
 													<div class="wpb_wrapper">
-														<p>Alan Clark is an experienced industry and corporate leader who specializes in engineering external R&amp;D. He is a member of the CTO Office and Director for Industry Initiatives, Emerging Standards and Open Source at SUSE. He also serves on the board of the OpenHPC project, LF Networking, OpenStack Foundation, and the Linux Foundation .</p>
+														<p><!-- placeholder for bio --></p>
 													</div>
 												</div>
 											</div> 
@@ -58,7 +58,16 @@
 								</div>
 							</div>
 							<div class="awsm-social-icons">
+								{% if committee_member.linkedin %}
 								<span><a href="https://www.linkedin.com/in/alanhclark" target="_blank"><i class="awsm-icon-linkedin" aria-hidden="true"></i></a></span>
+								{% endif %}
+								{% if committee_member.twitter %}
+								<span><a href="https://twitter.com/" target="_blank"><i class="awsm-icon-twitter" aria-hidden="true"></i></a></span>
+								{% endif %}
+								{% if committee_member.github %}
+								<span><a href="https://github.com/" target="_blank"><i class="awsm-icon-github" aria-hidden="true"></i></a></span>
+								{% endif %}
+								
 							</div>
 						</div>
 					</div>
