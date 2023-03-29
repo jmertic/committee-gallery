@@ -22,13 +22,22 @@
 							</div>
 						</div> <!-- End Single person Header -->
 						<div class="single-person-description">
-							<p class="short_description">Experienced industry and corporate leader who specializes in engineering external R&amp;D.</p>
+							<p class="short_description"><!-- placeholder for short description --></p>
 							<p class="read-more"><a href="#" data-featherlight="#{{ committee_member.FirstName | downcase }}-clark">Read More</a></p>
 							<div class="social-links">
-								<a href="https://www.linkedin.com/in/alanhclark" target="blank" title="LinkedIn"><i class="fa fa-linkedin"></i></a>
+								{% if committee_member.linkedin %}
+								<a href="https://www.linkedin.com/in/" target="blank" title="LinkedIn"><i class="fa fa-linkedin"></i></a>
+								{% endif %}
+								{% if committee_member.twitter %}
+								<a href="https://twitter.com/" target="blank" title="Twitter"><i class="fa fa-twitter"></i></a>
+								{% endif %}
+								{% if committee_member.github %}
+								<a href="https://github.com/" target="blank" title="Github"><i class="fa fa-github"></i></a>
+								{% endif %}
 							</div>
-							<div id="alan-clark" class="lightbox">
-								<p class="description"></p><p>Alan Clark is an experienced industry and corporate leader who specializes in engineering external R&amp;amp;D. He is a member of the CTO Office and Director for Industry Initiatives, Emerging Standards and Open Source at SUSE. He also serves on the board of the OpenHPC project, LF Networking, OpenStack Foundation, and the Linux Foundation .</p>
+							<div id="{{ committee_member.FirstName | handleize }}-{{ committee_member.LastName | handleize }}" class="lightbox">
+								<p class="description"></p>
+									<p><!-- placeholder for bio --></p>
 								<p></p>
 							</div>                 
 						</div>
