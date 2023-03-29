@@ -1,4 +1,3 @@
 ---
-layout: newsite
+layout: default
 ---
-
