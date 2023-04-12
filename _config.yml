@@ -7,6 +7,8 @@ jekyll_get_json:
     json: 'https://api-gw.platform.linuxfoundation.org/project-service/v2/public/projects/a0941000002wBymAAE/committees/af26e499-0dcc-4cb2-9164-9e3a5e43d8c3/members'
   - data: academy-software-foundation-budget-growth-committee
     json: 'https://api-gw.platform.linuxfoundation.org/project-service/v2/public/projects/a09410000182dD2AAI/committees/ebe79e6f-0d31-4ddd-a9b3-6c0fdd974133/members'
+  - data: academy-software-foundation-governing-board
+    json: 'https://api-gw.platform.linuxfoundation.org/project-service/v2/public/projects/a09410000182dD2AAI/committees/bd97129e-42bd-4b18-a8af-88d1e513e994/members'
 
 plugins:
   - jekyll-get-json
