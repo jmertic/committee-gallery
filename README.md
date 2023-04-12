@@ -6,6 +6,7 @@ The purpose of this project is to enable pulling the committee member list and m
 
 - [default](https://github.com/jmertic/committee-gallery/blob/main/_layouts/default.html) is the HTML layout used by most LF project websites from 2021 or earlier.
 - [newsite](https://github.com/jmertic/committee-gallery/blob/main/_layouts/newsite.html) is for LF project websites from 2022 and newer.
+- [slidedeck](https://github.com/jmertic/committee-gallery/blob/main/_layouts/slidedeck.html) is for including a committee headshot list in a slidedeck.
 
 Issues are always welcome, as well as pull requests to fix issues or add new templates.
 
