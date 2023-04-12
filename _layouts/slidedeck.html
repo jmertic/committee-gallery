@@ -1,0 +1,41 @@
+---
+---
+<style>
+div.gallery {
+	display: flex;
+	flex-wrap: wrap;
+	font: Calibri;
+}
+div.member {
+	width: 130px;
+	text-align: center;
+}
+.name, .role, .title {
+	display: block;
+	margin-top: 5px;
+  font-family: Calibri, sans-serif;
+}
+.role {
+	font-weight: bold;
+}
+img {
+	max-width: 90px;
+	border-radius: 50%;
+  display: block;
+  margin: auto;
+}
+
+</style>
+
+{% assign data-source = page.name | replace: ".md", "" %}
+{% assign committee_members = site.data[data-source].Data | where:'VotingStatus', 'Voting Rep' %}
+<div class="gallery">
+{% for committee_member in committee_members %}
+<div class="member"{% if committee_member.Role == 'Chair' %} style="order: -{{ forloop.index0 }};"{% endif %}>
+		<img src="{{ committee_member.LogoURL }}">
+		<span class="name">{{ committee_member.FirstName }} {{ committee_member.LastName }}</span>
+		<span class="role">{% if committee_member.Role != 'None' %}{{ committee_member.Role }}{% endif %}</span>
+		<span class="title">{{ committee_member.Title }} at {{ committee_member.Organization.Name }}</span>
+	</div>
+{% endfor %}
+</div>
