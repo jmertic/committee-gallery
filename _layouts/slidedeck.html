@@ -18,11 +18,22 @@ div.member {
 .role {
 	font-weight: bold;
 }
-img {
-	max-width: 90px;
+.headshot {
+	height: 90px;
+	width: 90px;
+	position: relative;
+	overflow: hidden;
 	border-radius: 50%;
-  display: block;
-  margin: auto;
+	margin: auto;
+	display: block;
+}
+.headshot img {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	height: 100%;
+	width: auto;
+	transform: translate(-50%,-50%);
 }
 
 </style>
@@ -32,10 +43,10 @@ img {
 <div class="gallery">
 {% for committee_member in committee_members %}
 <div class="member"{% if committee_member.Role == 'Chair' %} style="order: -{{ forloop.index0 }};"{% endif %}>
-		<img src="{{ committee_member.LogoURL }}">
-		<span class="name">{{ committee_member.FirstName }} {{ committee_member.LastName }}</span>
-		<span class="role">{% if committee_member.Role != 'None' %}{{ committee_member.Role }}{% endif %}</span>
-		<span class="title">{{ committee_member.Title }} at {{ committee_member.Organization.Name }}</span>
-	</div>
+	<span class="headshot"><img src="{{ committee_member.LogoURL }}"></span>
+	<span class="name">{{ committee_member.FirstName }} {{ committee_member.LastName }}</span>
+	<span class="role">{% if committee_member.Role != 'None' %}{{ committee_member.Role }}{% endif %}</span>
+	<span class="title">{{ committee_member.Title }} at {{ committee_member.Organization.Name }}</span>
+</div>
 {% endfor %}
 </div>
