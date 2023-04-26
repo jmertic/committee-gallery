@@ -9,6 +9,10 @@ jekyll_get_json:
     json: 'https://api-gw.platform.linuxfoundation.org/project-service/v2/public/projects/a09410000182dD2AAI/committees/ebe79e6f-0d31-4ddd-a9b3-6c0fdd974133/members'
   - data: academy-software-foundation-governing-board
     json: 'https://api-gw.platform.linuxfoundation.org/project-service/v2/public/projects/a09410000182dD2AAI/committees/bd97129e-42bd-4b18-a8af-88d1e513e994/members'
+  - data: lf-energy-foundation-tac
+    json: 'https://api-gw.platform.linuxfoundation.org/project-service/v2/public/projects/a094100001Cb6HaAAJ/committees/45a1d03a-608d-48e4-9bd4-ffc94edda0b7/members'
+  - data: lf-energy-foundation-governing-board
+    json: 'https://api-gw.platform.linuxfoundation.org/project-service/v2/public/projects/a094100001Cb6HaAAJ/committees/342ca6d8-4324-4593-9602-85abea86d059/members'
 
 plugins:
   - jekyll-get-json
