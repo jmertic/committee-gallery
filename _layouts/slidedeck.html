@@ -1,5 +1,12 @@
 ---
 ---
+
+{% if page.data-source %}
+{% assign data-source = page.data-source %}
+{% else %}
+{% assign data-source = page.name | replace: ".md", "" %}
+{% endif %}
+{% assign committee_members = site.data[data-source].Data | where:'VotingStatus', 'Voting Rep' %}
 <style>
 div.gallery {
 	display: flex;
@@ -38,8 +45,6 @@ div.member {
 
 </style>
 
-{% assign data-source = page.name | replace: ".md", "" %}
-{% assign committee_members = site.data[data-source].Data | where:'VotingStatus', 'Voting Rep' %}
 <div class="gallery">
 {% for committee_member in committee_members %}
 <div class="member"{% if committee_member.Role == 'Chair' %} style="order: -{{ forloop.index0 }};"{% endif %}>

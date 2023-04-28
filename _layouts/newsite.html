@@ -1,10 +1,14 @@
 ---
 ---
 
+{% if page.data-source %}
+{% assign data-source = page.data-source %}
+{% else %}
+{% assign data-source = page.name | replace: ".md", "" %}
+{% endif %}
+{% assign committee_members = site.data[data-source].Data | where:'VotingStatus', 'Voting Rep' %}
 <div class="awsm-modal">
 <div class="awsm-grid-modal awsm-grid modal-style style-1 grid-4-col ">
-{% assign data-source = page.name | replace: ".md", "" %}
-{% assign committee_members = site.data[data-source].Data | where:'VotingStatus', 'Voting Rep' %}
 {% for committee_member in committee_members %}
 	<div id="awsm-member-{{ forloop.index0 }}" class="awsm-grid-card awsm-team-item awsm-scale-anm awsm-all">
 		<span id="tigger-style-{{ forloop.index0 }}" class="awsm-team-link-control awsm-modal-trigger awsm-modal-trigger-{{ forloop.index0 }}" data-trigger="#modal-style-{{ forloop.index0 }}">

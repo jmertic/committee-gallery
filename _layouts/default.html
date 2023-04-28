@@ -1,7 +1,11 @@
 ---
 ---
 
+{% if page.data-source %}
+{% assign data-source = page.data-source %}
+{% else %}
 {% assign data-source = page.name | replace: ".md", "" %}
+{% endif %}
 {% assign committee_members = site.data[data-source].Data | where:'VotingStatus', 'Voting Rep' %}
 {% for committee_member in committee_members %}
 	{% assign mod4 = forloop.index | modulo: 4 %}
