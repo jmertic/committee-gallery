@@ -13,6 +13,8 @@ jekyll_get_json:
     json: 'https://api-gw.platform.linuxfoundation.org/project-service/v2/public/projects/a094100001Cb6HaAAJ/committees/45a1d03a-608d-48e4-9bd4-ffc94edda0b7/members'
   - data: lf-energy-foundation-governing-board
     json: 'https://api-gw.platform.linuxfoundation.org/project-service/v2/public/projects/a094100001Cb6HaAAJ/committees/342ca6d8-4324-4593-9602-85abea86d059/members'
+  - data: lfess-steering-committee
+    json: 'https://api-gw.platform.linuxfoundation.org/project-service/v2/public/projects/a092M00001NVDPsQAP/committees/dbe83264-d7f1-4c33-8102-cec5b12206c3/members'
 
 plugins:
   - jekyll-get-json
