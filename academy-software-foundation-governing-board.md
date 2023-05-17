@@ -1,3 +1,3 @@
 ---
-layout: slidedeck
+layout: default
 ---
