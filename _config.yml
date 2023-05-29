@@ -1,3 +1,11 @@
+defaults:
+  - 
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+
 jekyll_get_json:
   - data: open-mainframe-project-governing-board
     json: 'https://api-gw.platform.linuxfoundation.org/project-service/v2/public/projects/a0941000002wBymAAE/committees/1c29a7fe-0ff4-4728-a21d-561c6b1c7676/members'
@@ -11,8 +19,12 @@ jekyll_get_json:
     json: 'https://api-gw.platform.linuxfoundation.org/project-service/v2/public/projects/a09410000182dD2AAI/committees/ebe79e6f-0d31-4ddd-a9b3-6c0fdd974133/members'
   - data: academy-software-foundation-governing-board
     json: 'https://api-gw.platform.linuxfoundation.org/project-service/v2/public/projects/a09410000182dD2AAI/committees/bd97129e-42bd-4b18-a8af-88d1e513e994/members'
+  - data: academy-software-foundation-tac
+    json: 'https://api-gw.platform.linuxfoundation.org/project-service/v2/public/projects/a09410000182dD2AAI/committees/81ed2abc-d041-495b-be89-0dffedf8ce85/members'
   - data: lf-energy-foundation-tac
     json: 'https://api-gw.platform.linuxfoundation.org/project-service/v2/public/projects/a094100001Cb6HaAAJ/committees/45a1d03a-608d-48e4-9bd4-ffc94edda0b7/members'
+  - data: lf-energy-foundation-mac
+    json: 'https://api-gw.platform.linuxfoundation.org/project-service/v2/public/projects/a094100001Cb6HaAAJ/committees/b9e696a4-ea3c-41e8-ad59-c093e427ed61/members'
   - data: lf-energy-foundation-governing-board
     json: 'https://api-gw.platform.linuxfoundation.org/project-service/v2/public/projects/a094100001Cb6HaAAJ/committees/342ca6d8-4324-4593-9602-85abea86d059/members'
   - data: lfess-steering-committee

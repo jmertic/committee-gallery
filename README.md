@@ -2,13 +2,21 @@
 
 Many of our LF Project use the 'Persons' post type to display the list of members of a given committee on the project website. As committee management is done in LFX, keeping the website up to date requires manually synchronization to keep accurate. While committee member changes are usually only a few times a month, we do see headshots, titles, and bios change from time to time as well and those don't get synced.
 
-The purpose of this project is to enable pulling the committee member list and member information and displaying using the same HTML used on the LF project websites. Currently we have two templates supported:
+The purpose of this project is to enable pulling the committee member list and member information and displaying using the same HTML used on the LF project websites or in use in other embeds or visuals such as slidedecks. Currently we have three renders supported:
 
-- [default](https://github.com/jmertic/committee-gallery/blob/main/_layouts/default.html) is the HTML layout used by most LF project websites from 2021 or earlier.
-- [newsite](https://github.com/jmertic/committee-gallery/blob/main/_layouts/newsite.html) is for LF project websites from 2022 and newer.
-- [slidedeck](https://github.com/jmertic/committee-gallery/blob/main/_layouts/slidedeck.html) is for including a committee headshot list in a slidedeck.
+- [oldsite](https://github.com/jmertic/committee-gallery/blob/main/_includes/default.html) is the HTML layout used by most LF project websites from 2021 or earlier.
+- [newsite](https://github.com/jmertic/committee-gallery/blob/main/_includes/newsite.html) is for LF project websites from 2022 and newer.
+- [slidedeck](https://github.com/jmertic/committee-gallery/blob/main/_includes/slidedeck.html) is for including a committee headshot list in a slidedeck. (default option)
 
-Issues are always welcome, as well as pull requests to fix issues or add new templates.
+Additionally, there are five filters available:
+
+- all - returns all rows
+- alternates - returns all records with Voting Status = 'Alternative Voting Rep'
+- staff - returns all records with Role = 'LF Staff'
+- voting - returns all records with Voting Status = 'Voting Rep'
+- voting-and-alternates - returns all records with Voting Status = 'Voting Rep' or 'Alternative Voting Rep'
+
+Issues are always welcome, as well as pull requests to fix issues or add new renders or filters.
 
 ## Adding a committee
 
@@ -38,29 +46,32 @@ Example of an entry:
 
 ### New page
 
-Create a new markdown document in the root directory of the repository, using the name of `data` key above as the filename with the `.md` suffix. For the example entry above, the filename would be `open-mainframe-project-governing-board.md`.
+The easiest way to add new pages is to use the file naming convention below to indicate the `data-source`, `render`, and `filter`, as follows:
 
-The file contents will use Jeykll Front Matter with one key.
-
-```markdown
----
-layout: # choice of layout; currently one of 'default' or 'newsite'
----
+```
+<data-source>_<render>_<filter>.md
 ```
 
-Example of a file:
-```markdown
----
-layout: newsite
----
+For example, to create a view for the `data` key in the `_config.yml` file for a the render `olddata` and filter `staff`, the filename would be:
+
+```
+open-mainframe-project-governing-board_olddata_staff.md
 ```
 
-You can have the filename different than the `data` key by adding the `data-source` key to the Jeykll Front Matter as shown below:
+The default render is `slideshow` and filter is `voting`; if you don't specify those options these will be the defaults. For example, if for the data source `open-mainframe-project-governing-board` wewant a slideshow view of voting members, you can simply name the file:
+
+```
+open-mainframe-project-governing-board.md
+```
+
+Alternatively, you can add Jekyll front matter keys to override the filename derived values.
+
 
 ```markdown
 ---
-layout: newsite
-data-source: open-mainframe-project-governing-board
+data-source: open-mainframe-project-tac
+render: newsite
+filter: all
 ---
 ```
 
