@@ -54,6 +54,16 @@ Example of a file:
 layout: newsite
 ---
 ```
+
+You can have the filename different than the `data` key by adding the `data-source` key to the Jeykll Front Matter as shown below:
+
+```markdown
+---
+layout: newsite
+data-source: open-mainframe-project-governing-board
+---
+```
+
 ## Hosting in the site
 
 For Wordpress, you can remove the Persons block in the page editor and replace with a 'Raw HTML' block with the contents as below:
