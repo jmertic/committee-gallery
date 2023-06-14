@@ -13,6 +13,8 @@ jekyll_get_json:
     json: 'https://api-gw.platform.linuxfoundation.org/project-service/v2/public/projects/a0941000002wBymAAE/committees/163b26f7-a49b-40a3-89bb-e0592296c003/members'
   - data: open-mainframe-project-ambassadors
     json: 'https://api-gw.platform.linuxfoundation.org/project-service/v2/public/projects/a0941000002wBymAAE/committees/987166a8-3bf4-4d1b-a712-e7ea2c3b79e5/members'
+  - data: open-mainframe-summit-program-committee
+    json: 'https://api-gw.platform.linuxfoundation.org/project-service/v2/public/projects/a0941000002wBymAAE/committees/614aba4a-c6ba-42a2-909d-312c4b41989a/members'
   - data: open-mainframe-project-marketing-committee
     json: 'https://api-gw.platform.linuxfoundation.org/project-service/v2/public/projects/a0941000002wBymAAE/committees/af26e499-0dcc-4cb2-9164-9e3a5e43d8c3/members'
   - data: academy-software-foundation-budget-growth-committee
