@@ -36,6 +36,9 @@
     {% assign committee_members = site.data[data-source].Data | where_exp:"Item", "Item.VotingStatus == 'Voting Rep' or Item.VotingStatus == 'Alternate Voting Rep'" %}
   {% when "staff" %}
     {% assign committee_members = site.data[data-source].Data | where:'Role', 'LF Staff' %}
+<style>
+.committee_member-role { display: none !important; }
+</style>
   {% when "voting" %}
     {% assign committee_members = site.data[data-source].Data | where:'VotingStatus', 'Voting Rep' %}
   {% else %}

@@ -41,7 +41,7 @@ div.member {
 <div class="member"{% if committee_member.Role == 'Chair' %} style="order: -{{ forloop.index0 }};"{% endif %}>
 	<span class="headshot"><img src="{{ committee_member.LogoURL }}"></span>
 	<span class="name">{{ committee_member.FirstName }} {{ committee_member.LastName }}</span>
-	<span class="role">{% if committee_member.Role != 'None' %}{{ committee_member.Role }}{% endif %}</span>
+	<span class="role committee_member-role">{% if committee_member.Role != 'None' %}{{ committee_member.Role }}{% endif %}</span>
 	<span class="title">{{ committee_member.Title }} at {{ committee_member.Organization.Name }}</span>
 </div>
 {% endfor %}
