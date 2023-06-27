@@ -26,12 +26,14 @@
 {% endif %}
 
 {% case filter %}
+  {% when "allbutstaff" %}
+    {% assign committee_members = site.data[data-source].Data | where_exp:"Item", "Item.Role != 'LF Staff'" %}
   {% when "all" %}
     {% assign committee_members = site.data[data-source].Data %}
   {% when "alternates" %}
     {% assign committee_members = site.data[data-source].Data | where:'VotingStatus', 'Alternate Voting Rep' %}
   {% when "voting-and-alternates" %}
-    {% assign committee_members = site.data[data-source].Data | where_exp:"VotingStatus", "VotingStatus == 'Voting Rep' or VotingStatus == 'Alternate Voting Rep'" %}
+    {% assign committee_members = site.data[data-source].Data | where_exp:"Item", "Item.VotingStatus == 'Voting Rep' or Item.VotingStatus == 'Alternate Voting Rep'" %}
   {% when "staff" %}
     {% assign committee_members = site.data[data-source].Data | where:'Role', 'LF Staff' %}
   {% when "voting" %}
