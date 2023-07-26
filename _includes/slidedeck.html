@@ -3,12 +3,13 @@ div.gallery {
 	display: flex;
 	flex-wrap: wrap;
 	font: Calibri;
+	place-content: center;
 }
 div.member {
 	width: 130px;
 	text-align: center;
 }
-.name, .role, .title {
+.name, .role, .title, .company {
 	display: block;
 	margin-top: 5px;
   font-family: Calibri, sans-serif;
@@ -42,7 +43,8 @@ div.member {
 	<span class="headshot"><img src="{{ committee_member.LogoURL }}"></span>
 	<span class="name">{{ committee_member.FirstName }} {{ committee_member.LastName }}</span>
 	<span class="role committee_member-role">{% if committee_member.Role != 'None' %}{{ committee_member.Role }}{% endif %}</span>
-	<span class="title">{{ committee_member.Title }} at {{ committee_member.Organization.Name }}</span>
+	<span class="title">{{ committee_member.Title }}</span>
+	<span class="company">{{ committee_member.Organization.Name }}</span>
 </div>
 {% endfor %}
 </div>
