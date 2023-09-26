@@ -81,7 +81,7 @@ For WordPress, you can remove the Persons block in the page editor and replace i
 
 ```html
 <div w3-include-html="https://jmertic.github.io/committee-gallery/DATA_NAME.html"></div>
-<script src="https://jmertic.github.io/committee-gallery/embed.js"></style>
+<script src="https://jmertic.github.io/committee-gallery/embed.js"></script>
 ```
 
 `DATA_NAME` matches the `data:` key in the entry in the `_config.yml` file.
