@@ -11,6 +11,8 @@ jekyll_get_json:
     json: 'https://api-gw.platform.linuxfoundation.org/project-service/v2/public/projects/a0941000002wBymAAE/committees/1c29a7fe-0ff4-4728-a21d-561c6b1c7676/members'
   - data: open-mainframe-project-tac
     json: 'https://api-gw.platform.linuxfoundation.org/project-service/v2/public/projects/a0941000002wBymAAE/committees/163b26f7-a49b-40a3-89bb-e0592296c003/members'
+  - data: open-mainframe-project-staff
+    json: 'https://api-gw.platform.linuxfoundation.org/project-service/v2/public/projects/a0941000002wBymAAE/committees/4e8a4fef-3feb-49c7-9dbc-a07655bfe7a1/members'
   - data: open-mainframe-project-ambassadors
     json: 'https://api-gw.platform.linuxfoundation.org/project-service/v2/public/projects/a0941000002wBymAAE/committees/987166a8-3bf4-4d1b-a712-e7ea2c3b79e5/members'
   - data: open-mainframe-summit-program-committee
@@ -23,6 +25,8 @@ jekyll_get_json:
     json: 'https://api-gw.platform.linuxfoundation.org/project-service/v2/public/projects/a09410000182dD2AAI/committees/bd97129e-42bd-4b18-a8af-88d1e513e994/members'
   - data: academy-software-foundation-tac
     json: 'https://api-gw.platform.linuxfoundation.org/project-service/v2/public/projects/a09410000182dD2AAI/committees/81ed2abc-d041-495b-be89-0dffedf8ce85/members'
+  - data: academy-software-foundation-staff
+    json: 'https://api-gw.platform.linuxfoundation.org/project-service/v2/public/projects/a09410000182dD2AAI/committees/a150a82d-69b9-4287-b1d4-1e679e57bb94/members'
   - data: lf-energy-foundation-tac
     json: 'https://api-gw.platform.linuxfoundation.org/project-service/v2/public/projects/a094100001Cb6HaAAJ/committees/45a1d03a-608d-48e4-9bd4-ffc94edda0b7/members'
   - data: lf-energy-foundation-mac
