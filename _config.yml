@@ -29,6 +29,8 @@ jekyll_get_json:
     json: 'https://api-gw.platform.linuxfoundation.org/project-service/v2/public/projects/a094100001Cb6HaAAJ/committees/b9e696a4-ea3c-41e8-ad59-c093e427ed61/members'
   - data: lf-energy-foundation-governing-board
     json: 'https://api-gw.platform.linuxfoundation.org/project-service/v2/public/projects/a094100001Cb6HaAAJ/committees/342ca6d8-4324-4593-9602-85abea86d059/members'
+  - data: lf-energy-foundation-staff
+    json: 'https://api-gw.platform.linuxfoundation.org/project-service/v2/public/projects/a094100001Cb6HaAAJ/committees/4e34011c-89a5-4643-bb4b-a644cd70bc1d/members'
   - data: lfess-steering-committee
     json: 'https://api-gw.platform.linuxfoundation.org/project-service/v2/public/projects/a092M00001NVDPsQAP/committees/dbe83264-d7f1-4c33-8102-cec5b12206c3/members'
   - data: lfess-wg-leads
