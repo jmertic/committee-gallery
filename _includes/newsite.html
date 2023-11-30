@@ -5,7 +5,7 @@
 	<div id="awsm-member-{{ forloop.index0 }}" class="awsm-grid-card awsm-team-item awsm-scale-anm awsm-all">
 		<span id="tigger-style-{{ forloop.index0 }}" class="awsm-team-link-control awsm-modal-trigger awsm-modal-trigger-{{ forloop.index0 }}" data-trigger="#modal-style-{{ forloop.index0 }}">
 			<figure>
-				<img width="500" height="500" src="{{ committee_member.LogoURL }}" class="attachment-awsm_team size-awsm_team wp-post-image" alt="" decoding="async">
+				<img width="500" height="500" style="object-fit: cover !important; aspect-ratio: 1 / 1 !important;" src="{{ committee_member.LogoURL }}" class="attachment-awsm_team size-awsm_team wp-post-image" alt="" decoding="async">
 				<figcaption>
 					<div class="awsm-personal-info">
 						<span class="committee_member-role">{% if committee_member.Role != 'None' %}{{ committee_member.Role }}<br>{% endif %}</span><span>{{ committee_member.Title }} at {{ committee_member.Organization.Name }}</span>
@@ -27,7 +27,7 @@
 			<div id="awsm-member-info-{{ forloop.index0 }}" class="awsm-modal-content">
 				<div class="awsm-modal-content-main">
 					<div class="awsm-image-main">
-						<img width="500" height="500" src="{{ committee_member.LogoURL }}" class="attachment-awsm_team size-awsm_team wp-post-image" alt="" decoding="async" loading="lazy">
+						<img width="500" height="500" style="object-fit: cover !important; aspect-ratio: 1 / 1 !important;" src="{{ committee_member.LogoURL }}" class="attachment-awsm_team size-awsm_team wp-post-image" alt="" decoding="async" loading="lazy">
 					</div>
 					<div class="awsm-modal-details">
 						<div class="awsm-modal-content-inner">
