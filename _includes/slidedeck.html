@@ -42,7 +42,7 @@ div.member {
 <div class="member"{% if committee_member.Role == 'Chair' %} style="order: -{{ forloop.index0 }};"{% endif %}>
 	{% assign profile_image = committee_member.LogoURL %}
 	{% for file in site.static_files %}
-		{% if file.basename == committee_member.ID %}{% assign profile_image = site.url | append: file.path %}{% endif %}
+		{% if file.basename == committee_member.MemberID %}{% assign profile_image = site.url | append: file.path %}{% endif %}
 	{% endfor %}
 	<span class="headshot"><img src="{{ profile_image }}"></span>
 	<span class="name">{{ committee_member.FirstName }} {{ committee_member.LastName }}</span>

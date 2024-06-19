@@ -4,7 +4,7 @@
 {% for committee_member in include.committee_members %}
 	{% assign profile_image = committee_member.LogoURL %}
 	{% for file in site.static_files %}
-		{% if file.basename == committee_member.ID %}{% assign profile_image = site.url | append: file.path %}{% endif %}
+		{% if file.basename == committee_member.MemberID %}{% assign profile_image = site.url | append: file.path %}{% endif %}
 	{% endfor %}
 	<div id="awsm-member-{{ forloop.index0 }}" class="awsm-grid-card awsm-team-item awsm-scale-anm awsm-all">
 		<span id="tigger-style-{{ forloop.index0 }}" class="awsm-team-link-control awsm-modal-trigger awsm-modal-trigger-{{ forloop.index0 }}" data-trigger="#modal-style-{{ forloop.index0 }}">
@@ -29,7 +29,7 @@
 		{% for committee_member in include.committee_members %}
 		{% assign profile_image = committee_member.LogoURL %}
 		{% for file in site.static_files %}
-		{% if file.basename == committee_member.ID %}{% assign profile_image = site.url | append: file.path %}{% endif %}
+		{% if file.basename == committee_member.MemberID %}{% assign profile_image = site.url | append: file.path %}{% endif %}
 		{% endfor %}
 		<div id="modal-style-{{ forloop.index0 }}" class="awsm-modal-item awsm-scale-anm awsm-modal-hidden awsm-all " data-info="7774">
 			<div id="awsm-member-info-{{ forloop.index0 }}" class="awsm-modal-content">

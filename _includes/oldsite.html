@@ -1,7 +1,7 @@
 {% for committee_member in include.committee_members %}
 	{% assign profile_image = committee_member.LogoURL %}
 	{% for file in site.static_files %}
-		{% if file.basename == committee_member.ID %}{% assign profile_image = site.url | append: file.path %}{% endif %}
+		{% if file.basename == committee_member.MemberID %}{% assign profile_image = site.url | append: file.path %}{% endif %}
 	{% endfor %}
 	{% assign mod4 = forloop.index | modulo: 4 %}
 	{% if mod4 == 1 %} 

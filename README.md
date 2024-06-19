@@ -4,9 +4,9 @@ Many of our LF Projects use the 'Persons' post type to display the list of commi
 
 This project aims to pull the committee member list and member information and display using the same HTML used on the LF project websites or in other embeds or visuals such as slide decks. Currently, we have three renders supported:
 
-- [oldsite](https://github.com/jmertic/committee-gallery/blob/main/_includes/default.html) is the HTML layout most LF project websites used from 2021 or earlier.
-- [newsite](https://github.com/jmertic/committee-gallery/blob/main/_includes/newsite.html) is for LF project websites from 2022 and newer.
-- [slidedeck](https://github.com/jmertic/committee-gallery/blob/main/_includes/slidedeck.html) is for including a committee headshot list in a slide deck. (default option)
+- [oldsite](_includes/oldsite.html) is the HTML layout most LF project websites used from 2021 or earlier.
+- [newsite](_includes/newsite.html) is for LF project websites from 2022 and newer.
+- [slidedeck](_includes/slidedeck.html) is for including a committee headshot list in a slide deck. (default option)
 
 Additionally, there are five filters available:
 
@@ -18,13 +18,46 @@ Additionally, there are five filters available:
 
 Issues and pull requests to fix issues or add new renders or filters are always welcome.
 
+## Current list of committee and renders
+
+- [Academy Software Foundation - Budget/Growth Committee - Slidedeck](https://jmertic.github.io/committee-gallery/academy-software-foundation-budget-growth-committee.md)
+- [Academy Software Foundation - Governing Board - Slidedeck](https://jmertic.github.io/committee-gallery/academy-software-foundation-governing-board.md)
+- [Academy Software Foundation - Governing Board - Old Site](https://jmertic.github.io/committee-gallery/academy-software-foundation-governing-board_oldsite.md)
+- [Academy Software Foundation - Governing Board Alternates - Slidedeck](https://jmertic.github.io/committee-gallery/academy-software-foundation-governing-board_slidedeck_alternates.md)
+- [Academy Software Foundation - Staff - Old Site](https://jmertic.github.io/committee-gallery/academy-software-foundation-staff_oldsite_all.md)
+- [Academy Software Foundation - Staff - Slidedeck](https://jmertic.github.io/committee-gallery/academy-software-foundation-staff_slidedeck_all.md)
+- [Academy Software Foundation - TAC - Slidedeck](https://jmertic.github.io/committee-gallery/academy-software-foundation-tac.md)
+- [Academy Software Foundation - TAC - Old Site](https://jmertic.github.io/committee-gallery/academy-software-foundation-tac_oldsite.md)
+- [LF Energy Foundation - Governing Board - Slidedeck](https://jmertic.github.io/committee-gallery/lf-energy-foundation-governing-board.md)
+- [LF Energy Foundation - Governing Board - New Site](https://jmertic.github.io/committee-gallery/lf-energy-foundation-governing-board_newsite.md)
+- [LF Energy Foundation - Marketing Advisory Committee Voting Members - Slidedeck](https://jmertic.github.io/committee-gallery/lf-energy-foundation-mac.md)
+- [LF Energy Foundation - Marketing Advisory Committee Voting Members - New Site](https://jmertic.github.io/committee-gallery/lf-energy-foundation-mac_newsite.md)
+- [LF Energy Foundation - Marketing Advisory Committee All Members - Slidedeck](https://jmertic.github.io/committee-gallery/lf-energy-foundation-mac_slidedeck_allbutstaff.md)
+- [LF Energy Foundation - Staff - New Site](https://jmertic.github.io/committee-gallery/lf-energy-foundation-staff_newsite_all.md)
+- [LF Energy Foundation - Staff - Slidedeck](https://jmertic.github.io/committee-gallery/lf-energy-foundation-staff_slidedeck_all.md)
+- [LF Energy Foundation - TAC - Slidedeck](https://jmertic.github.io/committee-gallery/lf-energy-foundation-tac.md)
+- [LF Energy Foundation - TAC - New Site](https://jmertic.github.io/committee-gallery/lf-energy-foundation-tac_newsite.md)
+- [LF Energy Standards and Specifications - Steering Committee - Slidedeck](https://jmertic.github.io/committee-gallery/lfess-steering-committee.md)
+- [LF Energy Standards and Specifications - Working Group Leads - Slidedeck](https://jmertic.github.io/committee-gallery/lfess-wg-leads_slidedeck_all.md)
+- [Open Mainframe Project - Ambassadors - Slidedeck](https://jmertic.github.io/committee-gallery/open-mainframe-project-ambassadors.md)
+- [Open Mainframe Project - Ambassadors - New Site](https://jmertic.github.io/committee-gallery/open-mainframe-project-ambassadors_newsite.md)
+- [Open Mainframe Project - Governing Board - Slidedeck](https://jmertic.github.io/committee-gallery/open-mainframe-project-governing-board.md)
+- [Open Mainframe Project - Governing Board - New Site](https://jmertic.github.io/committee-gallery/open-mainframe-project-governing-board_newsite.md)
+- [Open Mainframe Project - Marketing Committee - Slidedeck](https://jmertic.github.io/committee-gallery/open-mainframe-project-marketing-committee.md)
+- [Open Mainframe Project - Marketing Committee - New Site](https://jmertic.github.io/committee-gallery/open-mainframe-project-marketing-committee_newsite.md)
+- [Open Mainframe Project - Staff - New Site](https://jmertic.github.io/committee-gallery/open-mainframe-project-staff_newsite_all.md)
+- [Open Mainframe Project - Staff - Slidedeck](https://jmertic.github.io/committee-gallery/open-mainframe-project-staff_slidedeck_all.md)
+- [Open Mainframe Project - TAC - Slidedeck](https://jmertic.github.io/committee-gallery/open-mainframe-project-tac.md)
+- [Open Mainframe Project - TAC - New Site](https://jmertic.github.io/committee-gallery/open-mainframe-project-tac_newsite.md)
+- [Open Mainframe Project - Open Mainframe Summit Program Committee](https://jmertic.github.io/committee-gallery/open-mainframe-summit-program-committee.md)
+
 ## Adding a committee
 
 It's an easy two-step process to add a new committee. Add a pull request to commit to this repo to host the committee HTML code.
 
 ### Entry in _config.yml
 
-First, edit [_config.yml](https://github.com/jmertic/committee-gallery/blob/main/_config.yml) and add the following lines under `jekyll_get_json:`
+First, edit [_config.yml](_config.yml) and add the following lines under `jekyll_get_json:`
 
 ```yaml
   - data: # project name and committee in Kebab case
@@ -58,7 +91,7 @@ For example, to create a view for the `data` key in the `_config.yml` file for t
 open-mainframe-project-governing-board_olddata_staff.md
 ```
 
-The default render is `slideshow,` and the filter is `voting`; if you don't specify those options, these will be the defaults. For example, if for the data source `open-mainframe-project-governing-board,` we want a slideshow view of voting members, you can name the file:
+The default render is `slidedeck,` and the filter is `voting`; if you don't specify those options, these will be the defaults. For example, if for the data source `open-mainframe-project-governing-board,` we want a Slidedeck view of voting members, you can name the file:
 
 ```
 open-mainframe-project-governing-board.md
