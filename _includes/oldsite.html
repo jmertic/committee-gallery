@@ -40,7 +40,7 @@
 							</div>
 							<div id="{{ committee_member.FirstName | downcase | handleize }}-{{ committee_member.LastName | downcase | handleize }}" class="lightbox">
 								<p class="description"></p>
-									<p><!-- placeholder for bio --></p>
+									<p>{{ committee_member.AboutMe.Description }}</p>
 								<p></p>
 							</div>                 
 						</div>
