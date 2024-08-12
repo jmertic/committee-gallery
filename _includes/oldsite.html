@@ -22,7 +22,7 @@
 						</div> <!-- End Single person Header -->
 						<div class="single-person-description">
 							<p class="short_description"><!-- placeholder for short description --></p>
-							{% if committee_member.Bio %}
+							{% if committee_member.AboutMe.Description %}
 							<p class="read-more"><a href="#" data-featherlight="#{{ committee_member.FirstName | downcase | handleize }}-{{ committee_member.LastName | downcase | handleize }}">Read More</a></p>
 							{% endif %}
 							<div class="social-links">
