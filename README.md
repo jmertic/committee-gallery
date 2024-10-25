@@ -53,68 +53,27 @@ Issues and pull requests to fix issues or add new renders or filters are always 
 
 ## Adding a committee
 
-It's an easy two-step process to add a new committee. Add a pull request to commit to this repo to host the committee HTML code.
+It's an easy one-step process to add a new committee. Add a pull request to commit to this repo to host the committee HTML code.
 
-### Entry in _config.yml
-
-First, edit [_config.yml](_config.yml) and add the following lines under `jekyll_get_json:`
-
-```yaml
-  - data: # project name and committee in Kebab case
-    json: 'https://api-gw.platform.linuxfoundation.org/project-service/v2/public/projects/PROJECT_ID/committees/COMMITTEE_ID/members'
-```
-You can get the `PROJECT_ID` and `COMMITTEE_ID` from the URL of the committee page in the LFX Project Control Center; see the URL below:
-
-```
-https://projectadmin.lfx.linuxfoundation.org/project/a0941000002wBymAAE/collaboration/committees/1c29a7fe-0ff4-4728-a21d-561c6b1c7676
-```
-In this example, `PROJECT_ID` would be `a0941000002wBymAAE` and `COMMITTEE_ID` would be `1c29a7fe-0ff4-4728-a21d-561c6b1c7676`
-
-Example of an entry:
-
-```yaml
-  - data: open-mainframe-project-governing-board
-    json: 'https://api-gw.platform.linuxfoundation.org/project-service/v2/public/projects/a0941000002wBymAAE/committees/1c29a7fe-0ff4-4728-a21d-561c6b1c7676/members'
-```
-
-### New page
-
-The easiest way to add new pages is to use the file naming convention below to indicate the `data-source`, `render`, and `filter` as follows:
-
-```
-<data-source>_<render>_<filter>.md
-```
-
-For example, to create a view for the `data` key in the `_config.yml` file for the render `olddata` and filter `staff`, the filename would be:
-
-```
-open-mainframe-project-governing-board_olddata_staff.md
-```
-
-The default render is `slidedeck,` and the filter is `voting`; if you don't specify those options, these will be the defaults. For example, if for the data source `open-mainframe-project-governing-board,` we want a Slidedeck view of voting members, you can name the file:
-
-```
-open-mainframe-project-governing-board.md
-```
-
-Alternatively, you can add Jekyll front matter keys to override the filename-derived values.
-
+Add a new page in the root directory with the extention `.md` with the contents as below.
 
 ```markdown
 ---
-data-source: open-mainframe-project-tac
-render: newsite
-filter: all
+lfx_committee_url: <url from LFX PCC Committee page - example https://projectadmin.lfx.linuxfoundation.org/project/a0941000002wBykAAE/collaboration/committees/40ab4fff-0c3b-4718-91e4-e76b2805f34c>
+render: # optional, defaults to 'slidedeck'
+filter: # optional, defaults to 'voting'
 ---
 ```
+
+If you need to add additional contents or CSS for rendering, you can do this after the front matter.
 
 ## Hosting on the site
 
 For WordPress, you can remove the Persons block in the page editor and replace it with a 'Raw HTML' block with the contents as below:
 
 ```html
-<div w3-include-html="https://jmertic.github.io/committee-gallery/DATA_NAME.html"></div>
+<div w3-include-html="https://jmertic.github.io/committee-gallery/FILENAME.html"></div>
 <script src="https://jmertic.github.io/committee-gallery/embed.js"></script>
 ```
 
-`DATA_NAME` matches the `data:` key in the entry in the `_config.yml` file.
+`FILENAME` matches the filename of the file created, substituing `.md` with `.html`.

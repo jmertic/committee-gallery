@@ -4,9 +4,15 @@
 {% assign filenameparts = page.name | replace: ".md", "" | replace: ".html", "" | split: "_" %}
 
 {% if page.data-source %}
-{% assign data-source = page.data-source %}
+{% assign data-source = site.data[page.data-source] %}
+{% elsif page.lfx_committee_url %}
+{% assign urlparts = page.lfx_committee_url | split: "/" %}
+{% capture committee_json_url %}https://api-gw.platform.linuxfoundation.org/project-service/v2/public/projects/{{ urlparts[4] }}/committees/{{ urlparts[7] }}/members{% endcapture %}
+{% externalJSON jsondata from url {{ committee_json_url }} %}
+{% assign data-source = jsondata %}
 {% else %}
-{% assign data-source = filenameparts[0] %}
+{% assign filenamepart1 = filenameparts[0] %}
+{% assign data-source = site.data[filenamepart1] %}
 {% endif %}
 
 {% if page.render %}
@@ -27,28 +33,28 @@
 
 {% case filter %}
   {% when "allbutstaff" %}
-    {% assign committee_members = site.data[data-source].Data | where_exp:"Item", "Item.Role != 'LF Staff'" %}
+    {% assign committee_members = data-source.Data | where_exp:"Item", "Item.Role != 'LF Staff'" %}
   {% when "all" %}
-    {% assign committee_members = site.data[data-source].Data %}
+    {% assign committee_members = data-source.Data %}
   {% when "alternates" %}
-    {% assign committee_members = site.data[data-source].Data | where:'VotingStatus', 'Alternate Voting Rep' %}
+    {% assign committee_members = data-source.Data | where:'VotingStatus', 'Alternate Voting Rep' %}
   {% when "voting-and-alternates" %}
-    {% assign committee_members = site.data[data-source].Data | where_exp:"Item", "Item.VotingStatus == 'Voting Rep' or Item.VotingStatus == 'Alternate Voting Rep'" %}
+    {% assign committee_members = data-source.Data | where_exp:"Item", "Item.VotingStatus == 'Voting Rep' or Item.VotingStatus == 'Alternate Voting Rep'" %}
   {% when "staff" %}
-    {% assign committee_members = site.data[data-source].Data | where:'Role', 'LF Staff' %}
+    {% assign committee_members = data-source.Data | where:'Role', 'LF Staff' %}
 <style>
 .committee_member-role { display: none !important; }
 </style>
   {% when "voting" %}
-    {% assign committee_members = site.data[data-source].Data | where:'VotingStatus', 'Voting Rep' %}
+    {% assign committee_members = data-source.Data | where:'VotingStatus', 'Voting Rep' %}
   {% else %}
-    {% assign committee_members = site.data[data-source].Data | where:'VotingStatus', 'Voting Rep' %}
+    {% assign committee_members = data-source.Data | where:'VotingStatus', 'Voting Rep' %}
 {% endcase %}
 {% if jekyll.environment == "development" %}
 <!--
 DEBUG:
 
-data-source: {{ data-source }}
+data-source: {{ data-source | inspect }}
 render: {{ render }}
 filter: {{ filter }}
 
