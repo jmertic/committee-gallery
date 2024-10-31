@@ -1,32 +1,23 @@
 ---
 ---
 
-{% assign filenameparts = page.name | replace: ".md", "" | replace: ".html", "" | split: "_" %}
-
-{% if page.data-source %}
-{% assign data-source = site.data[page.data-source] %}
-{% elsif page.lfx_committee_url %}
+{% if page.lfx_committee_url %}
 {% assign urlparts = page.lfx_committee_url | split: "/" %}
 {% capture committee_json_url %}https://api-gw.platform.linuxfoundation.org/project-service/v2/public/projects/{{ urlparts[4] }}/committees/{{ urlparts[7] }}/members{% endcapture %}
 {% externalJSON jsondata from url {{ committee_json_url }} %}
 {% assign data-source = jsondata %}
 {% else %}
-{% assign filenamepart1 = filenameparts[0] %}
-{% assign data-source = site.data[filenamepart1] %}
+ERROR: Missing data_source
 {% endif %}
 
 {% if page.render %}
 {% assign render = page.render %}
-{% elsif filenameparts.size > 1 %}
-{% assign render = filenameparts[1] %}
 {% else %}
 {% assign render = "slidedeck" %}
 {% endif %}
 
 {% if page.filter %}
 {% assign filter = page.filter %}
-{% elsif filenameparts.size > 2 %}
-{% assign filter = filenameparts[2] %}
 {% else %}
 {% assign filter = "voting" %}
 {% endif %}
