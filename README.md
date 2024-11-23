@@ -1,5 +1,9 @@
 # Embeddable Committee Gallery for LF Project WordPress sites
 
+[![License](https://img.shields.io/github/license/jmertic/lfx-landscape-tools)](LICENSE)
+[![Build](https://github.com/jmertic/committee-gallery/actions/workflows/jekyll.yml/badge.svg)](https://github.com/jmertic/committee-gallery/actions/workflows/jekyll.yml)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=jmertic_committee-gallery&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=jmertic_committee-gallery)
+
 Many of our LF Projects use the 'Persons' post type to display the list of committee members on the project website. As committee management is done in LFX, keeping the website updated requires manual synchronization to keep it accurate. While committee member changes are usually only a few times a month, we see headshots, titles, and bios change from time to time, and those need to be synced.
 
 This project aims to pull the committee member list and member information and display using the same HTML used on the LF project websites or in other embeds or visuals such as slide decks. Currently, we have three renders supported:
