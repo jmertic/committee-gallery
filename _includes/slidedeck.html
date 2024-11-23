@@ -2,7 +2,7 @@
 div.gallery {
 	display: flex;
 	flex-wrap: wrap;
-	font: Calibri;
+	font-family: Calibri, sans-serif;
 	place-content: center;
 }
 div.member {
@@ -12,7 +12,7 @@ div.member {
 .name, .role, .title, .company {
 	display: block;
 	margin-top: 5px;
-  font-family: Calibri, sans-serif;
+	font-family: Calibri, sans-serif;
 }
 .role {
 	font-weight: bold;
@@ -44,7 +44,7 @@ div.member {
 	{% for file in site.static_files %}
 		{% if file.basename == committee_member.MemberID %}{% assign profile_image = site.url | append: file.path %}{% endif %}
 	{% endfor %}
-	<span class="headshot"><img src="{{ profile_image }}"></span>
+	<span class="headshot"><img alt="{{ committee_member.FirstName }} {{ committee_member.LastName }}" src="{{ profile_image }}"></span>
 	<span class="name">{{ committee_member.FirstName }} {{ committee_member.LastName }}</span>
 	<span class="role committee_member-role">{% if committee_member.Role != 'None' %}{{ committee_member.Role }}{% endif %}</span>
 	<span class="title">{{ committee_member.Title }}</span>

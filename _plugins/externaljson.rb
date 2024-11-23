@@ -2,7 +2,7 @@ require 'json'
 require 'net/http'
 
 module ExternalJSON
-  class ExternalJSON_tag < Liquid::Tag
+  class ExternalJSONTag < Liquid::Tag
     def initialize(tag_name, text, tokens)
       super
       @text = text
@@ -22,5 +22,5 @@ module ExternalJSON
   end
 end
 
-Liquid::Template.register_tag('externalJSON', ExternalJSON::ExternalJSON_tag)
+Liquid::Template.register_tag('externalJSON', ExternalJSON::ExternalJSONTag)
 
