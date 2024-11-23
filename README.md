@@ -1,6 +1,6 @@
 # Embeddable Committee Gallery for LF Project WordPress sites
 
-[![License](https://img.shields.io/github/license/jmertic/lfx-landscape-tools)](LICENSE)
+[![License](https://img.shields.io/github/license/jmertic/committee-gallery)](LICENSE)
 [![Build](https://github.com/jmertic/committee-gallery/actions/workflows/jekyll.yml/badge.svg)](https://github.com/jmertic/committee-gallery/actions/workflows/jekyll.yml)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=jmertic_committee-gallery&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=jmertic_committee-gallery)
 
