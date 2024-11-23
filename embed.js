@@ -1,13 +1,12 @@
 function includeHTML() {
   /* Loop through a collection of all HTML elements: */
-  var z = document.getElementsByTagName("*");
-  for (var i = 0; i < z.length; i++) {
-    var elmnt = z[i];
+  let z = document.getElementsByTagName("*");
+  for (let elmnt of z) {  
     /*search for elements with a certain atrribute:*/
-    var file = elmnt.getAttribute("w3-include-html");
+    let file = elmnt.getAttribute("w3-include-html");
     if (file) {
       /* Make an HTTP request using the attribute value as the file name: */
-      var xhttp = new XMLHttpRequest();
+      let xhttp = new XMLHttpRequest();
       xhttp.onreadystatechange = function() {
         if (this.readyState == 4) {
           if (this.status == 200) {elmnt.innerHTML = this.responseText;}
