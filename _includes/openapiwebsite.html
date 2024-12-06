@@ -4,7 +4,15 @@
 		{% for committee_member in include.committee_members %}
 			{%- capture tablet_column_break -%}{{ forloop.index0 | modulo:2 }}{%- endcapture -%}
 			{%- capture desktop_column_break -%}{{ forloop.index0 | modulo:3 }}{%- endcapture -%}
-			{%- unless forloop.first and desktop_column_break != "0" -%}
+<!--
+DEBUG:
+
+index: {{ forloop.index0 }}
+tablet_column_break: {{ tablet_column_break }}
+desktop_column_break: {{ desktop_column_break }}
+
+-->
+			{%- unless forloop.first or desktop_column_break != "0" -%}
 			</div>
 			{%- endunless -%}
 			{%- if forloop.first or tablet_column_break == "0" -%}
@@ -34,12 +42,11 @@
 						</div>
 					</div>
 				</div>
+			{%- if forloop.last -%}{%- if desktop_column_break == "0" and !forloop.first -%}
 			</div>
+			{%- endif -%}{%- endif -%}
 			{%- if forloop.last -%}
 			<div style="clear:both;"></div>
-			{%- endif -%}
-			{%- if forloop.last or desktop_column_break == "0" -%}
-			</div>
 			{%- endif -%}
 		{%- endfor -%}
 		</div>
