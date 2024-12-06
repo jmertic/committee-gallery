@@ -1,8 +1,4 @@
 {% for committee_member in include.committee_members %}
-	{% assign profile_image = committee_member.LogoURL %}
-	{% for file in site.static_files %}
-		{% if file.basename == committee_member.MemberID %}{% assign profile_image = site.url | append: file.path %}{% endif %}
-	{% endfor %}
 	{% assign mod4 = forloop.index | modulo: 4 %}
 	{% if mod4 == 1 %} 
 	<div class="col span_12 left" data-midnight="dark">
@@ -13,7 +9,7 @@
 					<div class="single-person-grid">
 						<div class="span_12 single-person-header">
 							<div class="single-person-icon">
-								<img alt="{{ committee_member.FirstName }} {{ committee_member.LastName }}" src="{{ profile_image }}">
+								<img alt="{{ committee_member.FirstName }} {{ committee_member.LastName }}" src="{%- include snippets/headshot.html profile_image=committee_member.LogoURL member_id=committee_member.MemberID %}">
 							</div>
 							<div class="single-person-title">
 								<h3>{{ committee_member.FirstName }} {{ committee_member.LastName }}</h3>

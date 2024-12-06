@@ -1,0 +1,48 @@
+<h2 style="text-align: center">
+	<div class="tmm tmm_last_row_centered tmm_{{page.name}} tmm-floating-pic">
+		<div class="tmm_3_columns tmm_wrap ">
+		{% for committee_member in include.committee_members %}
+			{%- capture tablet_column_break -%}{{ forloop.index0 | modulo:2 }}{%- endcapture -%}
+			{%- capture desktop_column_break -%}{{ forloop.index0 | modulo:3 }}{%- endcapture -%}
+			{%- unless forloop.first and desktop_column_break != "0" -%}
+			</div>
+			{%- endunless -%}
+			{%- if forloop.first or tablet_column_break == "0" -%}
+			<span class="tmm_two_containers_tablet"></span>
+			{%- endif -%}
+			{%- if forloop.first or desktop_column_break == "0" -%}
+			<div class="tmm_container">
+			{%- endif -%}
+				<div class="tmm_member " style="border-top:#aaaaaa solid 5px;">
+					<div data-focus="{{page.name}}_{{forloop.index0}}" class=" tmm_photo" style="background: url({%- include snippets/headshot.html profile_image=committee_member.LogoURL member_id=committee_member.MemberID %}); margin-left: auto; margin-right:auto; background-size:cover !important;"></div>
+					<input type="hidden" class="jsfocus">
+					<div class="tmm_textblock">
+						<div class="tmm_names"><span class="tmm_fname">{{ committee_member.FirstName }}</span> <span class="tmm_lname">{{ committee_member.LastName }}</span></div>
+						<div class="tmm_job">{{ committee_member.VotingStartDate | slice: 0,4 }} — Current</div>
+						<div class="tmm_scblock">
+							{% if committee_member.Twitter and committee_member.Twitter != 'https://twitter.com/N/A' %}
+							<a target="_blank" class="tmm_sociallink" href="{{ committee_member.Twitter }}" title=""><img decoding="async" alt="" src="https://www.openapis.org/wp-content/plugins/team-members-pro/img/links/twitter.png"/></a>
+							{% endif %}
+							{% if committee_member.AboutMe %}
+							{% if committee_member.AboutMe.LinkedIn %}
+							<a target="_blank" class="tmm_sociallink" href="{{ committee_member.AboutMe.LinkedIn }}" title=""><img decoding="async" alt="" src="https://www.openapis.org/wp-content/plugins/team-members-pro/img/links/linkedin.png"/></a>
+							{% endif %}
+							{% if committee_member.AboutMe.GitHub %}
+							<a target="_blank" class="tmm_sociallink" href="{{ committee_member.AboutMe.GitHub }}" title=""><img decoding="async" alt="" src="https://www.openapis.org/wp-content/plugins/team-members-pro/img/links/customlink.png"/></a>
+							{% endif %}
+							{% endif %}
+						</div>
+					</div>
+				</div>
+			</div>
+			{%- if forloop.last -%}
+			<div style="clear:both;"></div>
+			{%- endif -%}
+			{%- if forloop.last or desktop_column_break == "0" -%}
+			</div>
+			{%- endif -%}
+		{%- endfor -%}
+		</div>
+	</div>
+</h2>
+

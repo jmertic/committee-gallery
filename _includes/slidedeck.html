@@ -40,11 +40,7 @@ div.member {
 <div class="gallery">
 {% for committee_member in include.committee_members %}
 <div class="member"{% if committee_member.Role == 'Chair' %} style="order: -{{ forloop.index0 }};"{% endif %}>
-	{% assign profile_image = committee_member.LogoURL %}
-	{% for file in site.static_files %}
-		{% if file.basename == committee_member.MemberID %}{% assign profile_image = site.url | append: file.path %}{% endif %}
-	{% endfor %}
-	<span class="headshot"><img alt="{{ committee_member.FirstName }} {{ committee_member.LastName }}" src="{{ profile_image }}"></span>
+	<span class="headshot"><img alt="{{ committee_member.FirstName }} {{ committee_member.LastName }}" src="{%- include snippets/headshot.html profile_image=committee_member.LogoURL member_id=committee_member.MemberID %}"></span>
 	<span class="name">{{ committee_member.FirstName }} {{ committee_member.LastName }}</span>
 	<span class="role committee_member-role">{% if committee_member.Role != 'None' %}{{ committee_member.Role }}{% endif %}</span>
 	<span class="title">{{ committee_member.Title }}</span>

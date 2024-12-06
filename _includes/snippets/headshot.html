@@ -1,0 +1,5 @@
+{%- assign profile_image = include.profile_image -%}
+{%- for file in site.static_files -%}
+{%- if file.basename == include.member_id -%}{%- assign profile_image = site.url | append: file.path -%}{%- endif -%}
+{%- endfor -%}
+{{ profile_image }}
