@@ -1,0 +1,8 @@
+- api_value: Vote of General Member Class
+  display_value: General Member Representative
+- api_valuevalue: Vote of Silver Member Class
+  display_value: Silver Member Representative
+- api_value: Vote of TAC Committee
+  display_value: TAC Representative
+- api_value: Vote of Academic Member Class
+  display_value: Academic Member Representative
