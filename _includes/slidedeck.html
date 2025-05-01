@@ -42,7 +42,8 @@ div.member {
 <div class="member"{% if committee_member.Role == 'Chair' %} style="order: -{{ forloop.index0 }};"{% endif %}>
 	<span class="headshot"><img alt="{{ committee_member.FirstName }} {{ committee_member.LastName }}" src="{%- include snippets/headshot.html profile_image=committee_member.LogoURL member_id=committee_member.MemberID %}"></span>
 	<span class="name">{{ committee_member.FirstName }} {{ committee_member.LastName }}</span>
-	<span class="role committee_member-role">{% if committee_member.Role != 'None' %}{{ committee_member.Role }}{% endif %}</span>
+	<span class="role committee_member-role">{%- include snippets/role.html role=committee_member.Role -%}</span>
+	<span class="role appointed_by">{%- include snippets/appointedby.html appointedby=committee_member.AppointedBy -%}</span>
 	<span class="title">{{ committee_member.Title }}</span>
 	<span class="company">{{ committee_member.Organization.Name }}</span>
 </div>
