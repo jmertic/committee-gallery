@@ -1,4 +1,6 @@
+{%- if include.appointedby -%}
 {%- assign appointed_by = site.data.appointedby | where: "api_value", include.appointedby -%}
 {%- if appointed_by.size > 0 -%}
 {{ appointed_by[0].display_value }}{% if include.addnewline %}<br>{% endif %}
+{%- endif -%}
 {%- endif -%}
