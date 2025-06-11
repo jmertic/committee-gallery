@@ -12,7 +12,7 @@ filter: all
     font-family: "Red Hat Display", sans-serif !important;
     font-optical-sizing: auto;
     font-style: normal;
-    font-weight: 600;
+    font-weight: 300;
 }
 .role, .title {
     font-size: smaller;
