@@ -7,7 +7,7 @@ lfx_committee_url: https://projectadmin.lfx.linuxfoundation.org/project/lfVJp5XO
     padding-top: 1em;
   }
   div.member {
-    width: calc(100% / 6);
+    width: calc(100% / 6) !important;
     font-family: "Open Sans";
   }
 </style>
