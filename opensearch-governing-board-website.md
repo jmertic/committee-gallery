@@ -8,7 +8,7 @@ lfx_committee_url: https://projectadmin.lfx.linuxfoundation.org/project/lfVJp5XO
   }
   div.member {
     width: calc(100% / 6) !important;
-    font-family: "Open Sans";
+    font-family: 'Open Sans' !important;
   }
   span.role.appointed_by {
     display: none;
