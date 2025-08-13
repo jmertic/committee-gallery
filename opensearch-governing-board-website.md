@@ -8,5 +8,6 @@ lfx_committee_url: https://projectadmin.lfx.linuxfoundation.org/project/lfVJp5XO
   }
   div.member {
     width: calc(100% / 6);
+    font-family: "Open Sans";
   }
 </style>
