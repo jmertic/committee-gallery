@@ -1,16 +1,4 @@
-# Embeddable Committee Gallery for LF Project WordPress sites
-
-[![License](https://img.shields.io/github/license/jmertic/committee-gallery)](LICENSE)
-[![Build](https://github.com/jmertic/committee-gallery/actions/workflows/jekyll.yml/badge.svg)](https://github.com/jmertic/committee-gallery/actions/workflows/jekyll.yml)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=jmertic_committee-gallery&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=jmertic_committee-gallery)
-
-Many of our LF Projects use the 'Persons' post type to display the list of committee members on the project website. As committee management is done in LFX, keeping the website updated requires manual synchronization to keep it accurate. While committee member changes are usually only a few times a month, we see headshots, titles, and bios change from time to time, and those need to be synced.
-
-This project aims to pull the committee member list and member information and display using the same HTML used on the LF project websites or in other embeds or visuals such as slide decks. Currently, we have three renders supported:
-
-## Adding a committee
-
-It's an easy one-step process to add a new committee. Add a new page in the root directory with the extention `.md` with the contents as below.
+ easy one-step process to add a new committee. Add a new page in the root directory with the extention `.md` with the contents as below.
 
 ```markdown
 ---
@@ -53,34 +41,5 @@ Issues and pull requests to fix issues or add new renders or filters are always 
 
 ## Current list of committee and renders
 
-- [Academy Software Foundation - Budget/Growth Committee - Slidedeck](https://jmertic.github.io/committee-gallery/academy-software-foundation-budget-growth-committee.html)
-- [Academy Software Foundation - Governing Board - Slidedeck](https://jmertic.github.io/committee-gallery/academy-software-foundation-governing-board.html)
-- [Academy Software Foundation - Governing Board - Old Site](https://jmertic.github.io/committee-gallery/academy-software-foundation-governing-board_oldsite.html)
-- [Academy Software Foundation - Governing Board Alternates - Slidedeck](https://jmertic.github.io/committee-gallery/academy-software-foundation-governing-board_slidedeck_alternates.html)
-- [Academy Software Foundation - Staff - Old Site](https://jmertic.github.io/committee-gallery/academy-software-foundation-staff_oldsite_all.html)
-- [Academy Software Foundation - Staff - Slidedeck](https://jmertic.github.io/committee-gallery/academy-software-foundation-staff_slidedeck_all.html)
-- [Academy Software Foundation - TAC - Slidedeck](https://jmertic.github.io/committee-gallery/academy-software-foundation-tac.html)
-- [Academy Software Foundation - TAC - Old Site](https://jmertic.github.io/committee-gallery/academy-software-foundation-tac_oldsite.html)
-- [LF Energy Foundation - Governing Board - Slidedeck](https://jmertic.github.io/committee-gallery/lf-energy-foundation-governing-board.html)
-- [LF Energy Foundation - Governing Board - New Site](https://jmertic.github.io/committee-gallery/lf-energy-foundation-governing-board_newsite.html)
-- [LF Energy Foundation - Marketing Advisory Committee Voting Members - Slidedeck](https://jmertic.github.io/committee-gallery/lf-energy-foundation-mac.html)
-- [LF Energy Foundation - Marketing Advisory Committee Voting Members - New Site](https://jmertic.github.io/committee-gallery/lf-energy-foundation-mac_newsite.html)
-- [LF Energy Foundation - Marketing Advisory Committee All Members - Slidedeck](https://jmertic.github.io/committee-gallery/lf-energy-foundation-mac_slidedeck_allbutstaff.html)
-- [LF Energy Foundation - Staff - New Site](https://jmertic.github.io/committee-gallery/lf-energy-foundation-staff_newsite_all.html)
-- [LF Energy Foundation - Staff - Slidedeck](https://jmertic.github.io/committee-gallery/lf-energy-foundation-staff_slidedeck_all.html)
-- [LF Energy Foundation - TAC - Slidedeck](https://jmertic.github.io/committee-gallery/lf-energy-foundation-tac.html)
-- [LF Energy Foundation - TAC - New Site](https://jmertic.github.io/committee-gallery/lf-energy-foundation-tac_newsite.html)
-- [LF Energy Standards and Specifications - Steering Committee - Slidedeck](https://jmertic.github.io/committee-gallery/lfess-steering-committee.html)
-- [LF Energy Standards and Specifications - Working Group Leads - Slidedeck](https://jmertic.github.io/committee-gallery/lfess-wg-leads_slidedeck_all.html)
-- [Open Mainframe Project - Ambassadors - Slidedeck](https://jmertic.github.io/committee-gallery/open-mainframe-project-ambassadors.html)
-- [Open Mainframe Project - Ambassadors - New Site](https://jmertic.github.io/committee-gallery/open-mainframe-project-ambassadors_newsite.html)
-- [Open Mainframe Project - Governing Board - Slidedeck](https://jmertic.github.io/committee-gallery/open-mainframe-project-governing-board.html)
-- [Open Mainframe Project - Governing Board - New Site](https://jmertic.github.io/committee-gallery/open-mainframe-project-governing-board_newsite.html)
-- [Open Mainframe Project - Marketing Committee - Slidedeck](https://jmertic.github.io/committee-gallery/open-mainframe-project-marketing-committee.html)
-- [Open Mainframe Project - Marketing Committee - New Site](https://jmertic.github.io/committee-gallery/open-mainframe-project-marketing-committee_newsite.html)
-- [Open Mainframe Project - Staff - New Site](https://jmertic.github.io/committee-gallery/open-mainframe-project-staff_newsite_all.html)
-- [Open Mainframe Project - Staff - Slidedeck](https://jmertic.github.io/committee-gallery/open-mainframe-project-staff_slidedeck_all.html)
-- [Open Mainframe Project - TAC - Slidedeck](https://jmertic.github.io/committee-gallery/open-mainframe-project-tac.html)
-- [Open Mainframe Project - TAC - New Site](https://jmertic.github.io/committee-gallery/open-mainframe-project-tac_newsite.html)
-- [Open Mainframe Project - Open Mainframe Summit Program Committee](https://jmertic.github.io/committee-gallery/open-mainframe-summit-program-committee.html)
+See [here](https://jmertic.github.io/committee-gallery)
 
