@@ -41,7 +41,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     environment:
-      name: github-pages
+      name: preview-pages
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
