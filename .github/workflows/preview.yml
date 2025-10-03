@@ -55,8 +55,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     environment:
-      # Both preview + prod go to same Pages host, but with different baseurls
-      name: github-pages
+      name: preview-pages
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
