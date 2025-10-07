@@ -9,4 +9,5 @@ defaults:
 collections:
   - profile_images
 
-url: https://jmertic.github.io/committee-gallery
+url: "" 
+baseurl: ""
