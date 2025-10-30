@@ -1,0 +1,84 @@
+name: Update README Section
+
+on:
+  workflow_call:
+    inputs:
+      start_marker:
+        description: "Marker indicating the start of the section"
+        required: false
+        default: "<!-- START_SECTION -->"
+        type: string
+      end_marker:
+        description: "Marker indicating the end of the section"
+        required: false
+        default: "<!-- END_SECTION -->"
+        type: string
+      script:
+        description: "Command to run that generates new content"
+        required: true
+        type: string
+    secrets:
+      token:
+        description: "Token with repo permissions (use PAT for auto-merge)"
+        required: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run script and save output
+        id: generate
+        shell: bash
+        run: |
+          OUTPUT=$(eval "${{ inputs.script }}")
+          echo "content<<EOF" >> $GITHUB_OUTPUT
+          echo "$OUTPUT" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Replace section in README.md
+        shell: bash
+        run: |
+          START="${{ inputs.start_marker }}"
+          END="${{ inputs.end_marker }}"
+          NEW_CONTENT="${{ steps.generate.outputs.content }}"
+
+          ESCAPED=$(printf '%s\n' "$NEW_CONTENT" | sed 's/[&/\]/\\&/g')
+
+          sed -i "/$START/,/$END/{ /$START/{p; echo \"$ESCAPED\"; }; /$END/p; d; }" README.md
+
+      - name: Check for changes
+        id: git-check
+        shell: bash
+        run: |
+          if git diff --quiet README.md; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create Pull Request
+        id: cpr
+        if: steps.git-check.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.token }}
+          branch: update/readme-section
+          title: "chore: update README section"
+          commit-message: "chore: update README section"
+          body: |
+            This PR updates the README section between markers.
+
+            Generated automatically by GitHub Actions.
+          labels: |
+            automerge
+
+      - name: Enable auto-merge
+        if: steps.cpr.outputs.pull-request-number
+        uses: peter-evans/enable-pull-request-automerge@v3
+        with:
+          token: ${{ secrets.token }}
+          pull-request-number: ${{ steps.cpr.outputs.pull-request-number }}
+          merge-method: squash
+
