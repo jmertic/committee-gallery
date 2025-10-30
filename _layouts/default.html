@@ -36,6 +36,10 @@ ERROR: Missing data_source
 <style>
 .committee_member-role { display: none !important; }
 </style>
+  {% when "lfe-ab-advisors" %}
+    {% assign committee_members = data-source.Data | where:'VotingStatus', 'Voting Rep' | where:'AppointedBy', 'Community' %}
+  {% when "lfe-ab-projectreps" %}
+    {% assign committee_members = data-source.Data | where:'VotingStatus', 'Voting Rep' | where:'AppointedBy', 'Vote of TSC Committee' %}
   {% when "voting" %}
     {% assign committee_members = data-source.Data | where:'VotingStatus', 'Voting Rep' %}
   {% else %}
