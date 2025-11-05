@@ -1,0 +1,60 @@
+{% for committee_member in include.committee_members %}
+{% assign remainder = forloop.index | modulo: 4 %}
+{% if forloop.first %} 
+<div class="grid-design outer people">
+{% endif %}	
+	<div class="vc_col-sm-4 grid-design people">
+		<a class="grid-design link-wrap people hashtag-link" href="#" data-featherlight="#{{ committee_member.FirstName | append: " " | append: committee_member.LastName | slugify }}"><img decoding="async" src="{%- include snippets/headshot.html profile_image=committee_member.LogoURL member_id=committee_member.MemberID %}"></a>
+		<div class="grid-design body-wrapper people">
+			<a href="#" data-featherlight="#amanda-katona" class="hashtag-link"><h3 class="name people">{{ committee_member.FirstName }} {{ committee_member.LastName }}</h3></a>
+			<p class="pronoun people"></p><h4 class="company people">{{ committee_member.Organization.Name }}</h4>
+			<h4 class="title people">{{ committee_member.Title }}</h4>
+			<h4 class="role-tier people">{%- include snippets/role.html role=committee_member.Role addnewline=true -%}{%- include snippets/appointedby.html appointedby=committee_member.AppointedBy addnewline=true -%}</h4>
+			<div class="social people">
+				{% if committee_member.AboutMe %}
+				{% if committee_member.AboutMe.LinkedIn %}
+				<a href="{{ committee_member.AboutMe.LinkedIn }}"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+				{% endif %}
+				{% if committee_member.AboutMe.GitHub %}
+				<a href="{{ committee_member.AboutMe.GitHub }}"><i class="fa fa-github" aria-hidden="true"></i></a>
+				{% endif %}
+				{% endif %}
+				{% if committee_member.Twitter and committee_member.Twitter != 'https://twitter.com/N/A' %}
+				<a href="{{ committee_member.Twitter }}"><i class="icon-salient-x-twitter" aria-hidden="true"></i></a>
+				{% endif %}
+			</div>
+			<div id="{{ committee_member.FirstName | append: " " | append: committee_member.LastName | slugify }}" class="lightbox">
+				<div class="modal people">
+					<img decoding="async" src="{%- include snippets/headshot.html profile_image=committee_member.LogoURL member_id=committee_member.MemberID %}">
+					<div class="content people">
+						<h3 class="title people">{{ committee_member.FirstName }} {{ committee_member.LastName }}</h3>
+						<span class="pronoun people"></span>
+						<h4 class="title people">{{ committee_member.Title }}</h4>
+						<div class="biography people">
+							<p><span style="font-weight: 400;">{{ committee_member.AboutMe.Description }}</span></p>
+						</div>
+						<div class="social people">
+							{% if committee_member.AboutMe %}
+							{% if committee_member.AboutMe.LinkedIn %}
+							<a href="{{ committee_member.AboutMe.LinkedIn }}"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+							{% endif %}
+							{% if committee_member.AboutMe.GitHub %}
+							<a href="{{ committee_member.AboutMe.GitHub }}"><i class="fa fa-github" aria-hidden="true"></i></a>
+							{% endif %}
+							{% endif %}
+							{% if committee_member.Twitter and committee_member.Twitter != 'https://twitter.com/N/A' %}
+							<a href="{{ committee_member.Twitter }}"><i class="icon-salient-x-twitter" aria-hidden="true"></i></a>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% if forloop.last or remainder == 0 %} 
+</div>
+{% unless forloop.last %}
+<div class="grid-design outer people">
+{% endunless %}
+{% endif %}
+{% endfor %}
