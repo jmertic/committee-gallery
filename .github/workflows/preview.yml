@@ -17,13 +17,11 @@ jobs:
     steps:
       # Checkout
       - name: Checkout source
-        uses: actions/checkout@8ade135a9f8436371f21e14f064e445f5ddf1be3
-        # v4.1.7
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
 
       # Ruby setup (pinned)
       - name: Set up Ruby
-        uses: ruby/setup-ruby@b0f7e9fd9ba6f5b2cb02dbd16e5fbba68a8c76f8
-        # v1.183.0
+        uses: ruby/setup-ruby@8aeb6ff8030dd539317f8e1769a044873b56ea71 # v1.268.0
         with:
           ruby-version: "3.2"
           bundler-cache: true
@@ -38,7 +36,7 @@ jobs:
 
       # Upload Pages artifact (always)
       - name: Upload pages artifact
-        uses: actions/upload-pages-artifact@56afc609e8c5fb5d5b443c8f3c32346d7dba3a7a
+        uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4.0.0
         # v3.0.1
         with:
           path: _site
@@ -47,15 +45,13 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deploy
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        uses: actions/deploy-pages@4ad835abb3e8f1a6b4f1e47ed64607d680cf4c27
-        # v4.0.4
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4.0.5
 
       # PR Preview Deploy (only on PRs)
       - name: Deploy PR Preview
         id: pr_deploy
         if: github.event_name == 'pull_request'
-        uses: actions/deploy-pages@4ad835abb3e8f1a6b4f1e47ed64607d680cf4c27
-        # v4.0.4
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4.0.5
 
       # Comment PR Preview URL
       - name: Comment PR Preview URL
