@@ -8,7 +8,7 @@ permissions:
   contents: read
   pages: write
   id-token: write
-  pull-requests: write   # Needed to comment on PRs
+  pull-requests: write
 
 jobs:
   build:
@@ -16,10 +16,12 @@ jobs:
 
     steps:
       - name: Checkout repository
+        # actions/checkout@v4.2.2
         uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871
 
       - name: Setup Ruby
-        uses: ruby/setup-ruby@e4f1f8c5d4625ec065ebd6f1e5ad1733f2b88d88
+        # ruby/setup-ruby (stable SHA from default branch)
+        uses: ruby/setup-ruby@243fe4c77e624fa4a0e9c2f5e817c0b0b8f6d3cc
         with:
           ruby-version: '3.2'
           bundler-cache: true
@@ -28,6 +30,7 @@ jobs:
         run: bundle exec jekyll build --destination ./_site
 
       - name: Upload PR Preview Artifact
+        # actions/upload-pages-artifact@v3.0.1
         uses: actions/upload-pages-artifact@c57a27047bb1a00717a7818e2017cdac0d3f4d95
         with:
           path: ./_site
@@ -42,15 +45,17 @@ jobs:
     steps:
       - name: Deploy PR Preview
         id: deployment
+        # actions/deploy-pages@v4.0.5
         uses: actions/deploy-pages@c7708a4f3b593480369f57f984f52f0c8eaf7cd0
 
       - name: Comment on PR with preview URL
+        # thollander/actions-comment-pull-request@2.4.2 (pinned SHA)
         uses: thollander/actions-comment-pull-request@f5d7f5b3911d9fec7a6d3b5d5818271b1b40d4f3
         with:
           message: |
-            🚀 **Jekyll Preview is Ready!**
+            🚀 **Jekyll Preview Ready!**
 
             **Preview URL:**  
             ${{ steps.deployment.outputs.page_url }}
 
-            (This link updates on every push to the PR.)
+            This link updates automatically with each push to this PR.
