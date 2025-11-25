@@ -9,4 +9,12 @@ defaults:
 collections:
   - profile_images
 
-url: https://jmertic.github.io/committee-gallery
+url: "" 
+baseurl: ""
+
+relative_links:
+  enabled: true
+  collections: true
+
+plugins:
+  - jekyll-github-metadata
