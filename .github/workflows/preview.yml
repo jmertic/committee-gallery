@@ -1,8 +1,6 @@
-name: Jekyll Pages with Unique PR Previews
+name: Jekyll PR Previews
 
 on:
-  push:
-    branches: ["main"]
   pull_request:
 
 permissions:
@@ -31,18 +29,14 @@ jobs:
       - name: Determine output path
         id: setpath
         run: |
-          if [ "${{ github.event_name }}" = "pull_request" ]; then
-            echo "pr_path=pr-${{ github.event.pull_request.number }}" >> $GITHUB_OUTPUT
-          else
-            echo "pr_path=" >> $GITHUB_OUTPUT
-          fi
+          echo "pr_path=pr-${{ github.event.pull_request.number }}" >> $GITHUB_OUTPUT
 
       # Build Jekyll
       - name: Build Jekyll
         run: |
           DEST="./_site/${{ steps.setpath.outputs.pr_path }}"
           mkdir -p "$DEST"
-          bundle exec jekyll build --destination "$DEST" --trace --baseurl "${{ steps.setpath.outputs.pr_path }}"
+          bundle exec jekyll build --destination "$DEST" --trace --baseurl "${{ github.event.repository.name }}/pr-${{ github.event.pull_request.number }}/"
 
       # Upload the artifact for deployment
       - name: Upload Pages Artifact
@@ -62,7 +56,6 @@ jobs:
 
       # Comment PR preview URL
       - name: Comment PR Preview URL
-        if: github.event_name == 'pull_request'
         uses: peter-evans/create-or-update-comment@e8674b075228eee787fea43ef493e45ece1004c9 # v5.0.0
         with:
           issue-number: ${{ github.event.pull_request.number }}
