@@ -42,7 +42,7 @@ jobs:
         run: |
           DEST="./_site/${{ steps.setpath.outputs.pr_path }}"
           mkdir -p "$DEST"
-          bundle exec jekyll build --destination "$DEST" --trace
+          bundle exec jekyll build --destination "$DEST" --trace --baseurl "${{ steps.setpath.outputs.pr_path }}"
 
       # Upload the artifact for deployment
       - name: Upload Pages Artifact
