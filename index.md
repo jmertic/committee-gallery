@@ -10,7 +10,7 @@ layout: home
 <p>page.path: {{ page.path | inspect }}</p>
 <p>page.url: {{ page.url | inspect }}</p>
 <p>page.relative_path: {{ page.relative_path | inspect }}</p>
-
+<p>page.url | relative_url: {{ page.url | relative_url }}</p>
 {% endif %}
 {% endfor %}
 
