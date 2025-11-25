@@ -1,61 +1,71 @@
-name: Jekyll PR Preview
+name: Jekyll Build & Pages Deploy
 
 on:
+  push:
+    branches: ["main"]
   pull_request:
-    branches: [ main ]
 
 permissions:
   contents: read
   pages: write
   id-token: write
-  pull-requests: write
 
 jobs:
-  build:
+  jekyll:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        # actions/checkout@v4.2.2
-        uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871
+      # Checkout
+      - name: Checkout source
+        uses: actions/checkout@8ade135a9f8436371f21e14f064e445f5ddf1be3
+        # v4.1.7
 
-      - name: Setup Ruby
-        # ruby/setup-ruby (stable SHA from default branch)
-        uses: ruby/setup-ruby@243fe4c77e624fa4a0e9c2f5e817c0b0b8f6d3cc
+      # Ruby setup (pinned)
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@b0f7e9fd9ba6f5b2cb02dbd16e5fbba68a8c76f8
+        # v1.183.0
         with:
-          ruby-version: '3.2'
+          ruby-version: "3.2"
           bundler-cache: true
 
-      - name: Build Jekyll site
-        run: bundle exec jekyll build --destination ./_site
+      # Install dependencies
+      - name: Install Dependencies
+        run: bundle install --retry 3
 
-      - name: Upload PR Preview Artifact
-        # actions/upload-pages-artifact@v3.0.1
-        uses: actions/upload-pages-artifact@c57a27047bb1a00717a7818e2017cdac0d3f4d95
+      # Build Jekyll
+      - name: Build Jekyll Site
+        run: bundle exec jekyll build --trace
+
+      # Upload Pages artifact (always)
+      - name: Upload pages artifact
+        uses: actions/upload-pages-artifact@56afc609e8c5fb5d5b443c8f3c32346d7dba3a7a
+        # v3.0.1
         with:
-          path: ./_site
+          path: _site
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      # Deploy ONLY on push to main
+      - name: Deploy to GitHub Pages
+        id: deploy
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: actions/deploy-pages@4ad835abb3e8f1a6b4f1e47ed64607d680cf4c27
+        # v4.0.4
 
-    steps:
+      # PR Preview Deploy (only on PRs)
       - name: Deploy PR Preview
-        id: deployment
-        # actions/deploy-pages@v4.0.5
-        uses: actions/deploy-pages@c7708a4f3b593480369f57f984f52f0c8eaf7cd0
+        id: pr_deploy
+        if: github.event_name == 'pull_request'
+        uses: actions/deploy-pages@4ad835abb3e8f1a6b4f1e47ed64607d680cf4c27
+        # v4.0.4
 
-      - name: Comment on PR with preview URL
-        # thollander/actions-comment-pull-request@2.4.2 (pinned SHA)
-        uses: thollander/actions-comment-pull-request@f5d7f5b3911d9fec7a6d3b5d5818271b1b40d4f3
+      # Comment PR Preview URL
+      - name: Comment PR Preview URL
+        if: github.event_name == 'pull_request'
+        uses: peter-evans/create-or-update-comment@5c3e55c33f1f4c89b32a8a70d312f4042c1c0f05
+        # v3.0.2
         with:
-          message: |
-            🚀 **Jekyll Preview Ready!**
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            🔍 **Jekyll PR Preview Ready**
 
-            **Preview URL:**  
-            ${{ steps.deployment.outputs.page_url }}
-
-            This link updates automatically with each push to this PR.
+            Preview URL:  
+            **${{ steps.pr_deploy.outputs.page_url }}**
