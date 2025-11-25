@@ -1,6 +1,8 @@
-name: Jekyll Pages Build/Deploy/Preview
+name: Jekyll Pages with Unique PR Previews
 
 on:
+  push:
+    branches: ["main"]
   pull_request:
 
 permissions:
@@ -13,7 +15,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     outputs:
-      artifact-path: _site
+      pr_path: ${{ steps.setpath.outputs.pr_path }}
+
     steps:
       - name: Checkout
         uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
@@ -24,51 +27,47 @@ jobs:
           ruby-version: "3.2"
           bundler-cache: true
 
-      - name: Install dependencies
-        run: bundle install --retry 3
+      # Determine output folder: main → root, PR → /pr-<number>/
+      - name: Determine output path
+        id: setpath
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            echo "pr_path=pr-${{ github.event.pull_request.number }}" >> $GITHUB_OUTPUT
+          else
+            echo "pr_path=" >> $GITHUB_OUTPUT
+          fi
 
+      # Build Jekyll
       - name: Build Jekyll
-        run: bundle exec jekyll build --trace
+        run: |
+          DEST="./_site/${{ steps.setpath.outputs.pr_path }}"
+          mkdir -p "$DEST"
+          bundle exec jekyll build --destination "$DEST" --trace
 
-      - name: Upload artifact
+      # Upload the artifact for deployment
+      - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4.0.0
         with:
           path: _site
 
-  deploy-main:
+  deploy:
     runs-on: ubuntu-latest
     needs: build
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
 
-    environment:
-      name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
-
+    # Deploy for both PRs and main
     steps:
-      - name: Deploy main site
+      - name: Deploy to GitHub Pages
         id: deploy
         uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4.0.5
 
-  deploy-preview:
-    runs-on: ubuntu-latest
-    needs: build
-    if: github.event_name == 'pull_request'
-
-    environment:
-      name: pr-${{ github.event.pull_request.number }}
-      url: ${{ steps.deploy.outputs.page_url }}
-
-    steps:
-      - name: Deploy PR preview
-        id: deploy
-        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4.0.5
-
-      - name: Comment preview URL
+      # Comment PR preview URL
+      - name: Comment PR Preview URL
+        if: github.event_name == 'pull_request'
         uses: peter-evans/create-or-update-comment@e8674b075228eee787fea43ef493e45ece1004c9 # v5.0.0
         with:
           issue-number: ${{ github.event.pull_request.number }}
           body: |
-            🔍 **Jekyll PR Preview Ready!**
+            🔍 **Unique Jekyll PR Preview Ready**
 
             Preview URL:  
-            **${{ steps.deploy.outputs.page_url }}**
+            **https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/pr-${{ github.event.pull_request.number }}/**
