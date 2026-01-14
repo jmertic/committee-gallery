@@ -8,9 +8,54 @@ render: newsite
     display: none;
 }
 
+.awsm-modal-items-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    font-family: "Montserrat", sans-serif; 
+}
+
+.awsm-modal-items-main img {
+    max-width: 120px;
+    height: auto;
+}
+
+.awsm-modal-items-main h2 {
+    font-size: 16px;
+}
+
+.awsm-modal-items-main h3, p {
+    display: none;
+}
+
 .awsm-modal-items-main > span {
     position: absolute;
     top: 50%;
     z-index: 10%;
+}
+
+@media (min-width: 768px) {
+    .awsm-modal-items-main {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        align-items: center;
+        justify-content: center;
+        min-height: 200px;
+    }
+
+    .awsm-modal-details {
+        text-align: center;
+        margin: 0; 
+    }
+
+    .awsm-modal-content-main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 }
 </style>
