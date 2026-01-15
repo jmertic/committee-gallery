@@ -14,16 +14,16 @@ render: newsite
     align-items: center;
     text-align: center;
     gap: 1rem;
-    font-family: "Montserrat", sans-serif; 
 }
 
 .awsm-modal-items-main img {
-    max-width: 120px;
+    max-width: 240px;
     height: auto;
+    border-radius: .75rem
 }
 
 .awsm-modal-items-main h2 {
-    font-size: 16px;
+    font-size: 20px;
 }
 
 .awsm-modal-items-main h3, p {
@@ -36,10 +36,10 @@ render: newsite
     z-index: 10%;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1000px) {
     .awsm-modal-items-main {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
         gap: 1rem;
         align-items: center;
         justify-content: center;
