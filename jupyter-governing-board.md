@@ -32,12 +32,18 @@ render: newsite
     z-index: 10%;
 }
 
+.committee_member-role {
+  display: block;
+  margin-bottom: 0.5rem;
+  text-decoration: underline;
+}
+
 @media (min-width: 1000px) {
     .awsm-modal-items-main {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 1rem;
-        align-items: center;
+        align-items: start;
         justify-content: center;
         min-height: 200px;
     }
