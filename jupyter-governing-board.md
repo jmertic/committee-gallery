@@ -26,10 +26,6 @@ render: newsite
     font-size: 20px;
 }
 
-.awsm-modal-items-main h3, p {
-    display: none;
-}
-
 .awsm-modal-items-main > span {
     position: absolute;
     top: 50%;

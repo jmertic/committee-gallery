@@ -31,7 +31,7 @@
 					</div>
 					<div class="awsm-modal-details">
 						<div class="awsm-modal-content-inner">
-							<h3><span class="committee_member-role">{%- include snippets/role.html role=committee_member.Role addnewline=true -%}{%- include snippets/appointedby.html appointedby=committee_member.AppointedBy addnewline=true -%}</span>{{ committee_member.Title }} at {%- include snippets/orgname.html orgname=committee_member.Organization.Name -%}</h3>
+							<h3><span class="committee_member-role">{%- include snippets/role.html role=committee_member.Role addnewline=true -%}{%- include snippets/appointedby.html appointedby=committee_member.AppointedBy addnewline=true -%}</span>{{ committee_member.Title }} at {% include snippets/orgname.html orgname=committee_member.Organization.Name -%}</h3>
 							<h2>{{ committee_member.FirstName }} {{ committee_member.LastName }}</h2>
 							<div id="fws_6414ab3e0c4bd" data-column-margin="default" data-midnight="dark" class="wpb_row vc_row-fluid vc_row" style="padding-top: 0px; padding-bottom: 0px; ">
 								<div class="row-bg-wrap" data-bg-animation="none" data-bg-animation-delay="" data-bg-overlay="false">
