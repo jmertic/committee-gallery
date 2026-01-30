@@ -26,14 +26,16 @@ render: newsite
     font-size: 20px;
 }
 
-.awsm-modal-items-main h3, p {
-    display: none;
-}
-
 .awsm-modal-items-main > span {
     position: absolute;
     top: 50%;
     z-index: 10%;
+}
+
+.committee_member-role {
+  display: block;
+  margin-bottom: 0.5rem;
+  text-decoration: underline;
 }
 
 @media (min-width: 1000px) {
@@ -41,7 +43,7 @@ render: newsite
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 1rem;
-        align-items: center;
+        align-items: start;
         justify-content: center;
         min-height: 200px;
     }
