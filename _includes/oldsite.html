@@ -13,7 +13,7 @@
 							</div>
 							<div class="single-person-title">
 								<h3>{{ committee_member.FirstName }} {{ committee_member.LastName }}</h3>
-								<h5><span class="committee_member-role">{%- include snippets/role.html role=committee_member.Role addnewline=true -%}{%- include snippets/appointedby.html appointedby=committee_member.AppointedBy addnewline=true -%}</span>{{ committee_member.Title }} at {%- include snippets/orgname.html orgname=committee_member.Organization.Name -%}</h5>
+								<h5><span class="committee_member-role">{%- include snippets/role.html role=committee_member.Role addnewline=true -%}{%- include snippets/appointedby.html appointedby=committee_member.AppointedBy addnewline=true -%}</span>{{ committee_member.Title }}{%- include snippets/orgname.html orgname=committee_member.Organization.Name prepend = ' at '-%}</h5>
 							</div>
 						</div> <!-- End Single person Header -->
 						<div class="single-person-description">
