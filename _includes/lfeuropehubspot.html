@@ -11,7 +11,7 @@
                   <div class="pb--xs">
                     <div class="team-col__full-name text-color--white">{{ committee_member.FirstName }} {{ committee_member.LastName }}</div>
                     <div class="team-col__title text-color--white">
-                      <i>{{ committee_member.Title }}, {%- include snippets/orgname.html orgname=committee_member.Organization.Name -%}</i>
+			<i>{{ committee_member.Title }}{%- include snippets/orgname.html orgname=committee_member.Organization.Name prepend=', ' -%}</i>
                     </div>
                   </div>
                 </a>
@@ -28,7 +28,7 @@
                     
                     <div class="col4 team-col__popup-content-left">
                     <div class="modal__team-img">
-                      <img src="{%- include snippets/headshot.html profile_image=committee_member.LogoURL member_id=committee_member.MemberID %}">
+                      <img src="{%- include snippets/headshot.html profile_image=committee_member.LogoURL member_id=committee_member.MemberID %}"  alt="{{ committee_member.FirstName }} {{ committee_member.LastName }}">
                      </div>
                      <div class="modal__social-icons">
                        
@@ -47,7 +47,7 @@
                       </div>
                       <div class="modal__team-title">
                         <p class="team-col__title">
-                            {{ committee_member.Title }}, {%- include snippets/orgname.html orgname=committee_member.Organization.Name -%}
+                            {{ committee_member.Title }}{%- include snippets/orgname.html orgname=committee_member.Organization.Name prepend=', ' -%}
                         </p>
                       </div>
                       <div class="modal__team-bio">

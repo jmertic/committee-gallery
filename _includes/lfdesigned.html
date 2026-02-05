@@ -13,19 +13,19 @@
 			<div class="social people">
 				{% if committee_member.AboutMe %}
 				{% if committee_member.AboutMe.LinkedIn %}
-				<a href="{{ committee_member.AboutMe.LinkedIn }}"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+				<a href="{{ committee_member.AboutMe.LinkedIn }}"><i class="fa fa-linkedin" aria-hidden="true" alt="LinkedIn"></i></a>
 				{% endif %}
 				{% if committee_member.AboutMe.GitHub %}
-				<a href="{{ committee_member.AboutMe.GitHub }}"><i class="fa fa-github" aria-hidden="true"></i></a>
+				<a href="{{ committee_member.AboutMe.GitHub }}"><i class="fa fa-github" aria-hidden="true" alt="GitHub"></i></a>
 				{% endif %}
 				{% endif %}
 				{% if committee_member.Twitter and committee_member.Twitter != 'https://twitter.com/N/A' %}
-				<a href="{{ committee_member.Twitter }}"><i class="icon-salient-x-twitter" aria-hidden="true"></i></a>
+				<a href="{{ committee_member.Twitter }}"><i class="icon-salient-x-twitter" aria-hidden="true" alt="X/Twitter"></i></a>
 				{% endif %}
 			</div>
 			<div id="{{ committee_member.FirstName | append: " " | append: committee_member.LastName | slugify }}" class="lightbox">
 				<div class="modal people">
-					<img decoding="async" src="{%- include snippets/headshot.html profile_image=committee_member.LogoURL member_id=committee_member.MemberID %}">
+					<img decoding="async" src="{%- include snippets/headshot.html profile_image=committee_member.LogoURL member_id=committee_member.MemberID %}" alt="{{ committee_member.FirstName }} {{ committee_member.LastName }}">
 					<div class="content people">
 						<h3 class="title people">{{ committee_member.FirstName }} {{ committee_member.LastName }}</h3>
 						<span class="pronoun people"></span>
@@ -36,14 +36,14 @@
 						<div class="social people">
 							{% if committee_member.AboutMe %}
 							{% if committee_member.AboutMe.LinkedIn %}
-							<a href="{{ committee_member.AboutMe.LinkedIn }}"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+							<a href="{{ committee_member.AboutMe.LinkedIn }}"><i class="fa fa-linkedin" aria-hidden="true" alt="LinkedIn"></i></a>
 							{% endif %}
 							{% if committee_member.AboutMe.GitHub %}
-							<a href="{{ committee_member.AboutMe.GitHub }}"><i class="fa fa-github" aria-hidden="true"></i></a>
+							<a href="{{ committee_member.AboutMe.GitHub }}"><i class="fa fa-github" aria-hidden="true" alt="GitHub"></i></a>
 							{% endif %}
 							{% endif %}
 							{% if committee_member.Twitter and committee_member.Twitter != 'https://twitter.com/N/A' %}
-							<a href="{{ committee_member.Twitter }}"><i class="icon-salient-x-twitter" aria-hidden="true"></i></a>
+							<a href="{{ committee_member.Twitter }}"><i class="icon-salient-x-twitter" aria-hidden="true" alt="X/Twitter"></i></a>
 							{% endif %}
 						</div>
 					</div>

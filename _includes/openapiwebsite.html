@@ -4,14 +4,6 @@
 		{% for committee_member in include.committee_members %}
 			{%- capture tablet_column_break -%}{{ forloop.index0 | modulo:2 }}{%- endcapture -%}
 			{%- capture desktop_column_break -%}{{ forloop.index0 | modulo:3 }}{%- endcapture -%}
-<!--
-DEBUG:
-
-index: {{ forloop.index0 }}
-tablet_column_break: {{ tablet_column_break }}
-desktop_column_break: {{ desktop_column_break }}
-
--->
 			{%- unless forloop.first or desktop_column_break != "0" -%}
 			</div>
 			{%- endunless -%}
@@ -29,14 +21,14 @@ desktop_column_break: {{ desktop_column_break }}
 						<div class="tmm_job">{{ committee_member.VotingStartDate | slice: 0,4 }} — Current</div>
 						<div class="tmm_scblock">
 							{% if committee_member.Twitter and committee_member.Twitter != 'https://twitter.com/N/A' %}
-							<a target="_blank" class="tmm_sociallink" href="{{ committee_member.Twitter }}" title=""><img decoding="async" alt="" src="https://www.openapis.org/wp-content/plugins/team-members-pro/img/links/twitter.png"/></a>
+							<a target="_blank" class="tmm_sociallink" href="{{ committee_member.Twitter }}" title=""><img decoding="async" alt="X/Twitter" src="https://www.openapis.org/wp-content/plugins/team-members-pro/img/links/twitter.png"/></a>
 							{% endif %}
 							{% if committee_member.AboutMe %}
 							{% if committee_member.AboutMe.LinkedIn %}
-							<a target="_blank" class="tmm_sociallink" href="{{ committee_member.AboutMe.LinkedIn }}" title=""><img decoding="async" alt="" src="https://www.openapis.org/wp-content/plugins/team-members-pro/img/links/linkedin.png"/></a>
+							<a target="_blank" class="tmm_sociallink" href="{{ committee_member.AboutMe.LinkedIn }}" title=""><img decoding="async" alt="LinkedIn" src="https://www.openapis.org/wp-content/plugins/team-members-pro/img/links/linkedin.png"/></a>
 							{% endif %}
 							{% if committee_member.AboutMe.GitHub %}
-							<a target="_blank" class="tmm_sociallink" href="{{ committee_member.AboutMe.GitHub }}" title=""><img decoding="async" alt="" src="https://www.openapis.org/wp-content/plugins/team-members-pro/img/links/customlink.png"/></a>
+							<a target="_blank" class="tmm_sociallink" href="{{ committee_member.AboutMe.GitHub }}" title=""><img decoding="async" alt="GitHub" src="https://www.openapis.org/wp-content/plugins/team-members-pro/img/links/customlink.png"/></a>
 							{% endif %}
 							{% endif %}
 						</div>
