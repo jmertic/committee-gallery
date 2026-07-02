@@ -9,7 +9,7 @@ filter: all
 
 <style>
 .name, .role, .title {
-    font-family: "Red Hat Display", sans-serif !important;
+    font-family: "Inter", sans-serif !important;
     font-optical-sizing: auto;
     font-style: normal;
     font-weight: 300;
