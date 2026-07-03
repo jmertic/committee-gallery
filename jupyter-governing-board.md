@@ -3,8 +3,17 @@ lfx_committee_url: https://projectadmin.lfx.linuxfoundation.org/project/lfx8PfPc
 render: newsite
 ---
 <style>
+
+h2 {
+    font-size: 1.5rem;
+}
+
+h3 {
+    font-size: 1.17rem;
+}
+
 /* Hide the grid modal wrapper */
-.awsm-grid-modal.awsm-grid.modal-style.style-1.grid-4-col {
+.awsm-grid-modal {
     display: none;
 }
 
@@ -14,7 +23,7 @@ render: newsite
     flex-wrap: wrap;
     justify-content: center;
     align-items: flex-start;
-    gap: 2rem;
+    gap: 3rem;
     text-align: center;
 }
 
@@ -24,14 +33,14 @@ render: newsite
     flex-direction: column;
     align-items: center;
     text-align: center;
-    width: 140px;
+    width: 8.75rem;
 }
 
 /* Circular headshot */
 .awsm-modal-items-main img,
 .awsm-modal-content-main img {
-    width: 100px;
-    height: 100px;
+    width: 6.25rem;
+    height: 6.25rem;
     border-radius: 50%;
     object-fit: cover;
     display: block;
@@ -41,8 +50,6 @@ render: newsite
 /* Member name */
 .awsm-modal-items-main h2,
 .awsm-modal-content-main h2 {
-    font-size: 15px;
-    font-weight: 600;
     margin: 0 0 0.2rem 0;
     line-height: 1.3;
 }
@@ -50,7 +57,6 @@ render: newsite
 /* Company / organization */
 .awsm-modal-details,
 .awsm-modal-content-main .awsm-modal-details {
-    font-size: 13px;
     color: #555;
     margin: 0;
     text-align: center;
@@ -59,9 +65,8 @@ render: newsite
 /* Role label (underlined, shown above name if present) */
 .committee_member-role {
     display: block;
-    font-size: 12px;
     text-decoration: underline;
-    margin-bottom: 0.3rem;
+    padding-bottom: 1rem;
     color: #777;
 }
 
@@ -73,15 +78,15 @@ render: newsite
 /* Responsive: tighten gap on small screens */
 @media (max-width: 600px) {
     .awsm-modal-items-main {
-        gap: 1.25rem;
+        gap: 3rem;
     }
     .awsm-modal-content-main {
-        width: 110px;
+        width: 6.875rem;
     }
     .awsm-modal-items-main img,
     .awsm-modal-content-main img {
-        width: 80px;
-        height: 80px;
+        width: 5rem;
+        height: 5rem;
     }
 }
 </style>
