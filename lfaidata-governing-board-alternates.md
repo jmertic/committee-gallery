@@ -1,5 +1,6 @@
 ---
 lfx_committee_url: https://projectadmin.lfx.linuxfoundation.org/project/a0941000012Y73ZAAS/collaboration/committees/506d986c-3618-4dcb-944b-43112cf9efdf
+filter: alternates
 ---
 
 <link rel="stylesheet" id="redux-google-fonts-salient_redux-css" href="https://fonts.googleapis.com/css?family=Open+Sans%3A700%7CRoboto+Slab%3A500&amp;display=swap&amp;ver=1683165598" type="text/css" media="all">
