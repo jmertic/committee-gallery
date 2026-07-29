@@ -3,15 +3,17 @@ name: Jekyll PR Previews
 on:
   pull_request:
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-  pull-requests: write
+# Workflow-level permissions are omitted or kept empty so each job 
+# is explicitly granted only the minimum scopes required.
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      pages: write
+
     outputs:
       pr_path: ${{ steps.setpath.outputs.pr_path }}
 
@@ -47,6 +49,11 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build
+
+    permissions:
+      pages: write
+      id-token: write
+      pull-requests: write
 
     # Deploy for both PRs and main
     steps:
