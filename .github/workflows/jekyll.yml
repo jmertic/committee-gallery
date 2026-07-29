@@ -10,10 +10,6 @@ on:
   schedule:
     - cron: '0 0 * * *'
 
-# Restrict top-level default permissions to read-only
-permissions:
-  contents: read
-
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
@@ -23,6 +19,9 @@ concurrency:
 jobs:
   # Build job
   build:
+    permissions:
+      contents: read
+      pages: write
     runs-on: ubuntu-latest
     steps:
       - name: Harden Runner
@@ -55,7 +54,6 @@ jobs:
     permissions:
       pages: write
       id-token: write
-
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
