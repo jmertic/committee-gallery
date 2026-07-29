@@ -2,60 +2,91 @@
 lfx_committee_url: https://projectadmin.lfx.linuxfoundation.org/project/lfx8PfPcaAAbevANl3/collaboration/committees/2bd73af3-40ca-4a6a-bec6-9c4483f29465
 render: newsite
 ---
-
 <style>
-.awsm-grid-modal.awsm-grid.modal-style.style-1.grid-4-col {
+
+h2 {
+    font-size: 1.5rem;
+}
+
+h3 {
+    font-size: 1.17rem;
+}
+
+/* Hide the grid modal wrapper */
+.awsm-grid-modal {
     display: none;
 }
 
+/* Main container: wrap cards in a centered flex row */
 .awsm-modal-items-main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 3rem;
+    text-align: center;
+}
+
+/* Each member card */
+.awsm-modal-content-main {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 1rem;
+    width: 8.75rem;
 }
 
-.awsm-modal-items-main img {
-    max-width: 240px;
-    height: auto;
-    border-radius: .75rem
+/* Circular headshot */
+.awsm-modal-items-main img,
+.awsm-modal-content-main img {
+    width: 6.25rem;
+    height: 6.25rem;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto 0.6rem auto;
 }
 
-.awsm-modal-items-main h2 {
-    font-size: 20px;
+/* Member name */
+.awsm-modal-items-main h2,
+.awsm-modal-content-main h2 {
+    margin: 0 0 0.2rem 0;
+    line-height: 1.3;
 }
 
-.awsm-modal-items-main h3, p {
+/* Company / organization */
+.awsm-modal-details,
+.awsm-modal-content-main .awsm-modal-details {
+    color: #555;
+    margin: 0;
+    text-align: center;
+}
+
+/* Role label (underlined, shown above name if present) */
+.committee_member-role {
+    display: block;
+    text-decoration: underline;
+    padding-bottom: 1rem;
+    color: #777;
+}
+
+/* Hide the close/span overlay button */
+.awsm-modal-items-main > span {
     display: none;
 }
 
-.awsm-modal-items-main > span {
-    position: absolute;
-    top: 50%;
-    z-index: 10%;
-}
-
-@media (min-width: 1000px) {
+/* Responsive: tighten gap on small screens */
+@media (max-width: 600px) {
     .awsm-modal-items-main {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 1rem;
-        align-items: center;
-        justify-content: center;
-        min-height: 200px;
+        gap: 3rem;
     }
-
-    .awsm-modal-details {
-        text-align: center;
-        margin: 0; 
-    }
-
     .awsm-modal-content-main {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        width: 6.875rem;
+    }
+    .awsm-modal-items-main img,
+    .awsm-modal-content-main img {
+        width: 5rem;
+        height: 5rem;
     }
 }
 </style>
