@@ -48,21 +48,21 @@
 														<p>{{ committee_member.AboutMe.Description }}</p>
 													</div>
 												</div>
-											</div> 
+											</div>
 										</div>
-									</div> 
+									</div>
 								</div>
 							</div>
 							<div class="awsm-social-icons">
 								{% if committee_member.Twitter and committee_member.Twitter != 'https://twitter.com/N/A' %}
-								<span><a href="{{ committee_member.Twitter }}" target="_blank"><i class="awsm-icon-twitter" aria-hidden="true" alt="X/Twitter"></i></a></span>
+								<span><a href="{{ committee_member.Twitter }}" target="_blank" aria-label="X/Twitter"><i class="awsm-icon-twitter" aria-hidden="true"></i></a></span>
 								{% endif %}
 								{% if committee_member.AboutMe %}
 								{% if committee_member.AboutMe.LinkedIn %}
-								<span><a href="{{ committee_member.AboutMe.LinkedIn }}" target="_blank"><i class="awsm-icon-linkedin" aria-hidden="true" alt="LinkedIn"></i></a></span>
+								<span><a href="{{ committee_member.AboutMe.LinkedIn }}" target="_blank" aria-label="LinkedIn"><i class="awsm-icon-linkedin" aria-hidden="true"></i></a></span>
 								{% endif %}
 								{% if committee_member.AboutMe.GitHub %}
-								<span><a href="{{ committee_member.AboutMe.GitHub }}" target="_blank"><i class="awsm-icon-github" aria-hidden="true" alt="GitHub"></i></a></span>
+								<span><a href="{{ committee_member.AboutMe.GitHub }}" target="_blank" aria-label="GitHub"><i class="awsm-icon-github" aria-hidden="true"></i></a></span>
 								{% endif %}
 								{% endif %}
 							</div>
@@ -73,7 +73,7 @@
 		</div>
 		{% endfor %}
 		<span class="awsm-team-link-control awsm-nav-item awsm-nav-right"></span>
-	</div> 
+	</div>
 </div>
 </div>
 </div>

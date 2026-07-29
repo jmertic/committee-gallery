@@ -1,10 +1,10 @@
 {% for committee_member in include.committee_members %}
 {% assign remainder = forloop.index | modulo: 4 %}
-{% if forloop.first %} 
+{% if forloop.first %}
 <div class="grid-design outer people">
-{% endif %}	
+{% endif %}
 	<div class="vc_col-sm-4 grid-design people">
-		<a class="grid-design link-wrap people hashtag-link" href="#" data-featherlight="#{{ committee_member.FirstName | append: " " | append: committee_member.LastName | slugify }}"><img decoding="async" src="{%- include snippets/headshot.html profile_image=committee_member.LogoURL member_id=committee_member.MemberID %}"></a>
+		<a class="grid-design link-wrap people hashtag-link" href="#" data-featherlight="#{{ committee_member.FirstName | append: " " | append: committee_member.LastName | slugify }}"><img decoding="async" src="{%- include snippets/headshot.html profile_image=committee_member.LogoURL member_id=committee_member.MemberID %}" alt="{{ committee_member.FirstName }} {{ committee_member.LastName }}"></a>
 		<div class="grid-design body-wrapper people">
 			<a href="#" data-featherlight="#{{ committee_member.FirstName | append: " " | append: committee_member.LastName | slugify }}" class="hashtag-link"><h3 class="name people">{{ committee_member.FirstName }} {{ committee_member.LastName }}</h3></a>
 			<p class="pronoun people"></p><h4 class="company people">{%- include snippets/orgname.html orgname=committee_member.Organization.Name -%}</h4>
@@ -13,14 +13,14 @@
 			<div class="social people">
 				{% if committee_member.AboutMe %}
 				{% if committee_member.AboutMe.LinkedIn %}
-				<a href="{{ committee_member.AboutMe.LinkedIn }}"><i class="fa fa-linkedin" aria-hidden="true" alt="LinkedIn"></i></a>
+				<a href="{{ committee_member.AboutMe.LinkedIn }}" aria-label="LinkedIn"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
 				{% endif %}
 				{% if committee_member.AboutMe.GitHub %}
-				<a href="{{ committee_member.AboutMe.GitHub }}"><i class="fa fa-github" aria-hidden="true" alt="GitHub"></i></a>
+				<a href="{{ committee_member.AboutMe.GitHub }}" aria-label="GitHub"><i class="fa fa-github" aria-hidden="true"></i></a>
 				{% endif %}
 				{% endif %}
 				{% if committee_member.Twitter and committee_member.Twitter != 'https://twitter.com/N/A' %}
-				<a href="{{ committee_member.Twitter }}"><i class="icon-salient-x-twitter" aria-hidden="true" alt="X/Twitter"></i></a>
+				<a href="{{ committee_member.Twitter }}" aria-label="X/Twitter"><i class="icon-salient-x-twitter" aria-hidden="true"></i></a>
 				{% endif %}
 			</div>
 			<div id="{{ committee_member.FirstName | append: " " | append: committee_member.LastName | slugify }}" class="lightbox">
@@ -36,14 +36,14 @@
 						<div class="social people">
 							{% if committee_member.AboutMe %}
 							{% if committee_member.AboutMe.LinkedIn %}
-							<a href="{{ committee_member.AboutMe.LinkedIn }}"><i class="fa fa-linkedin" aria-hidden="true" alt="LinkedIn"></i></a>
+				      <a href="{{ committee_member.AboutMe.LinkedIn }}" aria-label="LinkedIn"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
 							{% endif %}
 							{% if committee_member.AboutMe.GitHub %}
-							<a href="{{ committee_member.AboutMe.GitHub }}"><i class="fa fa-github" aria-hidden="true" alt="GitHub"></i></a>
+				      <a href="{{ committee_member.AboutMe.GitHub }}" aria-label="GitHub"><i class="fa fa-github" aria-hidden="true"></i></a>
 							{% endif %}
 							{% endif %}
 							{% if committee_member.Twitter and committee_member.Twitter != 'https://twitter.com/N/A' %}
-							<a href="{{ committee_member.Twitter }}"><i class="icon-salient-x-twitter" aria-hidden="true" alt="X/Twitter"></i></a>
+				      <a href="{{ committee_member.Twitter }}" aria-label="X/Twitter"><i class="icon-salient-x-twitter" aria-hidden="true"></i></a>
 							{% endif %}
 						</div>
 					</div>
@@ -51,7 +51,7 @@
 			</div>
 		</div>
 	</div>
-{% if forloop.last or remainder == 0 %} 
+{% if forloop.last or remainder == 0 %}
 </div>
 {% unless forloop.last %}
 <div class="grid-design outer people">
