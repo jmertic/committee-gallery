@@ -30,6 +30,7 @@ Options for `filter` are:
 - `all` - returns all rows.
 - `allbutstaff` - returns all records with `Role != 'LF Staff'`.
 - `alternates` - returns all records with `Voting Status = 'Alternative Voting Rep'`.
+- `memberreps` - returns all records with `AppointedBy = 'Membership Entitlement'`.
 - `staff` - returns all records with `Role = 'LF Staff'`.
 - `voting` - returns all records with `Voting Status = 'Voting Rep'`. (default option)
 - `voting-and-alternates` - returns all records with `Voting Status = 'Voting Rep' or 'Alternative Voting Rep'`.
