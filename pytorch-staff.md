@@ -1,5 +1,5 @@
 ---
-lfx_committee_url: https://projectadmin.lfx.linuxfoundation.org/project/a092M00001LkQdtQAF/collaboration/committees/c99c6bbb-9d98-400b-9cfb-2f4c09d3b6cf
+lfx_committee_url: https://projectadmin.lfx.linuxfoundation.org/project/a092M00001LkQdtQAF/collaboration/committees/2bc5e3cb-a03f-4c6a-aa41-431024c988e2
 filter: all
 ---
 
