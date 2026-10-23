@@ -4,7 +4,7 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 
-permissions: read-all
+permissions: {}
 
 jobs:
   dependabot:
