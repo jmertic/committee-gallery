@@ -3,3 +3,10 @@ lfx_committee_url: https://projectadmin.lfx.linuxfoundation.org/project/a0941000
 render: oldsite
 filter: all
 ---
+
+<style>
+  .row .col div.single-person-icon img {
+    height: 300px !important;
+    width: 300px !important;
+  }
+</style>
