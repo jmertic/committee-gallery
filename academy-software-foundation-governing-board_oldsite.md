@@ -4,7 +4,7 @@ render: oldsite
 ---
 
 <style>
-  .row .col img {
+  .row .col div.single-person-icon img {
     height: 300px !important;
     width: 300px !important;
   }
